@@ -51,11 +51,10 @@
     }
 
     .logo {
-      max-width: 300px; /* adjust based on your logo size */
+      max-width: 300px;
       width: 60%;
       height: auto;
       margin-bottom: 1.5rem;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
     }
 
     h1 {
@@ -90,12 +89,13 @@
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
+      margin-bottom: 5rem; /* ← increased space below button */
     }
 
     .btn {
       display: inline-block;
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
+      padding: 1.2rem 3rem; /* slightly larger padding */
+      font-size: 1.5rem;     /* ← bigger text */
       font-weight: 500;
       text-decoration: none;
       border-radius: 50px;
@@ -108,13 +108,11 @@
       background: #b8860b;
       color: #0f1620;
       border: 2px solid #d4a017;
-      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
     }
 
     .btn-primary:hover {
       background: #d4a017;
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(212, 160, 23, 0.6);
     }
 
     .btn-secondary {
@@ -134,19 +132,23 @@
       text-align: center;
     }
 
+    .feature:first-of-type {
+      padding-top: 6rem; /* ← extra top space after hero button */
+    }
+
     .feature-img {
       max-width: 1024px;
       width: 100%;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
       margin: 0 auto 2.5rem;
       display: block;
+      /* box-shadow removed as requested */
     }
 
     .feature-text {
       font-family: 'IM Fell English SC', serif;
-      font-size: clamp(1.6rem, 4.5vw, 2.4rem); /* smaller than before */
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
       line-height: 1.45;
       max-width: 900px;
       margin: 0 auto;
@@ -160,7 +162,7 @@
     }
 
     footer {
-      position: relative; /* changed from absolute for better flow with many sections */
+      position: relative;
       padding: 2rem 5%;
       text-align: center;
       font-size: 0.95rem;
@@ -178,6 +180,10 @@
       .logo {
         max-width: 220px;
       }
+      .btn {
+        font-size: 1.3rem;
+        padding: 1rem 2.5rem;
+      }
     }
 
     @media (max-width: 640px) {
@@ -185,16 +191,13 @@
         flex-direction: column;
         gap: 1rem;
       }
-      .btn {
-        padding: 0.9rem 2rem;
-      }
     }
   </style>
 </head>
 <body>
 
   <section class="hero">
-    <div class="hero-content">
+    <div class="hero-content"></br></br>
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
       <h1>Buccaneer Heroes</h1>
       <div class="tagline">High Seas. High Stakes.</div>
