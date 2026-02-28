@@ -9,7 +9,7 @@
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
-  <meta property="og:image" content="https://yourdomain.com/hero-preview.jpg"> <!-- Replace with actual preview image -->
+  <meta property="og:image" content="https://yourdomain.com/hero-preview.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yourdomain.com">
 
@@ -26,8 +26,8 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      color: #f4e8d1; /* aged parchment / light gold */
-      background-color: #0a1f2e; /* deep ocean blue-black */
+      color: #f4e8d1;
+      background-color: #0a1f2e;
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -37,7 +37,7 @@
       height: 100vh;
       min-height: 700px;
       background: linear-gradient(rgba(10, 31, 46, 0.55), rgba(10, 31, 46, 0.75)),
-                  url('background2.jpg') center center / cover no-repeat fixed;
+                  url('hero-bg.jpg') center center / cover no-repeat fixed;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -50,6 +50,14 @@
       z-index: 2;
     }
 
+    .logo {
+      max-width: 300px; /* adjust based on your logo size */
+      width: 60%;
+      height: auto;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+    }
+
     h1 {
       font-family: 'Cinzel', serif;
       font-size: clamp(3.5rem, 10vw, 8rem);
@@ -57,7 +65,7 @@
       letter-spacing: 0.08em;
       text-shadow: 0 4px 12px rgba(0,0,0,0.9);
       margin-bottom: 0.2em;
-      color: #e8c670; /* golden / treasure tone */
+      color: #e8c670;
     }
 
     .tagline {
@@ -97,7 +105,7 @@
     }
 
     .btn-primary {
-      background: #b8860b; /* rich gold */
+      background: #b8860b;
       color: #0f1620;
       border: 2px solid #d4a017;
       box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
@@ -120,13 +128,56 @@
       transform: translateY(-3px);
     }
 
-    footer {
-      position: absolute;
-      bottom: 1.5rem;
+    .feature {
+      background-color: #0a1f2e;
+      padding: 4rem 5% 6rem;
+      text-align: center;
+    }
+
+    .feature-img {
+      max-width: 1024px;
       width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      margin: 0 auto 2.5rem;
+      display: block;
+    }
+
+    .feature-text {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem); /* smaller than before */
+      line-height: 1.45;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #e8c670;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      letter-spacing: 0.03em;
+    }
+
+    .feature:nth-child(even) {
+      background-color: #0d2537;
+    }
+
+    footer {
+      position: relative; /* changed from absolute for better flow with many sections */
+      padding: 2rem 5%;
       text-align: center;
       font-size: 0.95rem;
       opacity: 0.7;
+      border-top: 1px solid rgba(232,198,112,0.15);
+    }
+
+    @media (max-width: 768px) {
+      .feature {
+        padding: 3rem 5% 4rem;
+      }
+      .feature-text {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+      }
+      .logo {
+        max-width: 220px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -138,88 +189,45 @@
         padding: 0.9rem 2rem;
       }
     }
-
-  .feature {
-    background-color: #0a1f2e;
-    padding: 4rem 5% 6rem;
-    text-align: center;
-  }
-
-  .feature-img {
-    max-width: 1024px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    margin-bottom: 2.5rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .feature-text {
-    font-family: 'IM Fell English SC', serif;
-    font-size: clamp(2rem, 6vw, 3rem); /* ~48px max, scales nicely */
-    line-height: 1.4;
-    max-width: 900px;
-    margin: 0 auto;
-    color: #e8c670;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    letter-spacing: 0.03em;
-  }
-
-  .feature:nth-child(even) {
-    background-color: #0d2537; /* subtle alternate shade for rhythm */
-  }
-
-  @media (max-width: 768px) {
-    .feature {
-      padding: 3rem 5% 4rem;
-    }
-    .feature-text {
-      font-size: clamp(1.8rem, 5.5vw, 2.6rem);
-    }
-  }
   </style>
 </head>
 <body>
 
   <section class="hero">
     <div class="hero-content">
+      <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
       <h1>Buccaneer Heroes</h1>
       <div class="tagline">High Seas. High Stakes.</div>
       <p class="subtitle">
-        A strategic pirate board game of plunder, treacherous alliances, buried treasure, and naval combat. 
+        A strategic pirate board game of crew management, treacherous alliances, buried treasure, and naval combat. 
         Gather your scallywags, chart your course, and claim your legend… Coming soon.
       </p>
 
       <div class="buttons">
         <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">Visit us on itch.io</a>
-        <!-- Optional extra button if you have a mailing list, Discord, etc. -->
-        <!-- <a href="#" class="btn btn-secondary">Join the Crew (Newsletter)</a> -->
       </div>
     </div>
   </section>
 
-  <!-- Section 1 -->
+  <!-- Feature Section 1 -->
   <section class="feature">
-    <img src="https://learningmole.com/wp-content/uploads/2024/05/image-140.jpeg" alt="Sail the Caribbean seas" class="feature-img">
+    <img src="1.png" alt="Sail the Caribbean seas" class="feature-img">
     <p class="feature-text">
       Sail the 17th-century Caribbean, commanding your crew through eight thrilling seasons of raids, duels, and adventure. Plunder treasure ships, brave deadly storms, and uncover ancient secrets to forge your legend among pirates.
     </p>
   </section>
 
-  <!-- Section 2 -->
+  <!-- Feature Section 2 -->
   <section class="feature">
-    <img src="https://www.meeplemountain.com/wp-content/uploads/2024/09/Pirates-of-Maracaibo-1-1200x900-cropped.jpg" alt="Fast replayable sandbox adventure" class="feature-img">
+    <img src="2.png" alt="Fast replayable sandbox adventure" class="feature-img">
     <p class="feature-text">
       Buccaneer Heroes is a fast, highly replayable print-and-play sandbox adventure with streamlined mechanics for solo and multiplayer. Pool dice to cooperate or compete as you sail the open seas on your own sheet, sharing a living world where actions and story events affect everyone.
     </p>
   </section>
 
-  <!-- Section 3 -->
+  <!-- Feature Section 3 -->
   <section class="feature">
-    <img src="https://thumbs.dreamstime.com/z/unearth-secrets-lost-treasure-ancient-pirate-map-red-marks-spot-uncover-enigma-meticulously-crafted-377277927.jpg" alt="Ancient pirate secrets" class="feature-img">
+    <img src="3.png" alt="Components overview" class="feature-img">
     <p class="feature-text">
       97 Event Cards - digital or print-ready<br>
       ONLY 2 PAGES TO PRINT<br>
@@ -231,20 +239,19 @@
     </p>
   </section>
 
-  <!-- Section 4 -->
+  <!-- Feature Section 4 (image only) -->
   <section class="feature">
-    <img src="https://cf.geekdo-images.com/CokyDrFDCbfTlbMMoUwjcg__large/img/eaUc9YbMvgPw1MliVDRGL6PWhug=/fit-in/1024x1024/filters:no_upscale():strip_icc()/pic7743722.jpg" alt="Print and play components" class="feature-img">
-    <p class="feature-text">
-      Ready-to-print components and streamlined setup mean you dive straight into the action. No complex assembly—just print, grab some dice, and set sail.
-    </p>
+    <img src="4.png" alt="Print-and-play showcase" class="feature-img">
   </section>
 
-  <!-- Section 5 -->
+  <!-- Feature Section 5 (image only) -->
   <section class="feature">
-    <img src="https://thumbs.dreamstime.com/b/naval-battle-scene-pirate-ships-attacking-spanish-merchant-galleon-stormy-seas-engage-fierce-against-smoke-flames-415208579.jpg" alt="Epic naval battles" class="feature-img">
-    <p class="feature-text">
-      Command fierce naval combats, outmaneuver rival captains, and claim your share of the plunder in high-stakes sea battles that define your pirate legacy.
-    </p>
+    <img src="5.png" alt="Game detail or mockup" class="feature-img">
+  </section>
+
+  <!-- Feature Section 6 (image only) -->
+  <section class="feature">
+    <img src="6.png" alt="Epic naval battle" class="feature-img">
   </section>
 
   <footer>
