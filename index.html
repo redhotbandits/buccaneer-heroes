@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buccaneer Heroes – Coming Soon</title>
   <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
-  
+ 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
@@ -23,7 +23,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Roboto', sans-serif;
       color: #f4e8d1;
@@ -31,7 +30,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     .hero {
       position: relative;
       height: 100vh;
@@ -44,19 +42,17 @@
       text-align: center;
       padding: 0 5%;
     }
-
     .hero-content {
       max-width: 900px;
       z-index: 2;
     }
-
     .logo {
       max-width: 300px;
       width: 60%;
       height: auto;
-      margin-bottom: 1.5rem;
+      margin-top: 3rem;      /* lowered the logo (~2 cm or more) */
+      margin-bottom: 2rem;
     }
-
     h1 {
       font-family: 'Cinzel', serif;
       font-size: clamp(3.5rem, 10vw, 8rem);
@@ -66,7 +62,6 @@
       margin-bottom: 0.2em;
       color: #e8c670;
     }
-
     .tagline {
       font-family: 'IM Fell English SC', serif;
       font-size: clamp(1.6rem, 5vw, 3.2rem);
@@ -75,27 +70,24 @@
       opacity: 0.95;
       letter-spacing: 0.05em;
     }
-
     .subtitle {
       font-size: clamp(1.1rem, 3vw, 1.4rem);
       line-height: 1.6;
       max-width: 720px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 4rem;   /* more breathing room below (~1.5–2 cm extra) */
       opacity: 0.85;
     }
-
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
-      margin-bottom: 5rem; /* ← increased space below button */
+      margin-bottom: 2rem;   /* reduced → moves button up closer to subtitle */
     }
-
     .btn {
       display: inline-block;
-      padding: 1.2rem 3rem; /* slightly larger padding */
-      font-size: 1.5rem;     /* ← bigger text */
+      padding: 1.2rem 3rem;
+      font-size: 1.5rem;
       font-weight: 500;
       text-decoration: none;
       border-radius: 50px;
@@ -103,39 +95,32 @@
       cursor: pointer;
       letter-spacing: 0.05em;
     }
-
     .btn-primary {
       background: #b8860b;
       color: #0f1620;
       border: 2px solid #d4a017;
     }
-
     .btn-primary:hover {
       background: #d4a017;
       transform: translateY(-4px);
     }
-
     .btn-secondary {
       background: transparent;
       color: #e8c670;
       border: 2px solid #e8c670;
     }
-
     .btn-secondary:hover {
       background: rgba(232, 198, 112, 0.15);
       transform: translateY(-3px);
     }
-
     .feature {
       background-color: #0a1f2e;
       padding: 4rem 5% 6rem;
       text-align: center;
     }
-
     .feature:first-of-type {
-      padding-top: 6rem; /* ← extra top space after hero button */
+      padding-top: 6rem;
     }
-
     .feature-img {
       max-width: 1024px;
       width: 100%;
@@ -143,9 +128,7 @@
       border-radius: 8px;
       margin: 0 auto 2.5rem;
       display: block;
-      /* box-shadow removed as requested */
     }
-
     .feature-text {
       font-family: 'IM Fell English SC', serif;
       font-size: clamp(1.6rem, 4.5vw, 2.4rem);
@@ -156,11 +139,9 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       letter-spacing: 0.03em;
     }
-
     .feature:nth-child(even) {
       background-color: #0d2537;
     }
-
     footer {
       position: relative;
       padding: 2rem 5%;
@@ -169,7 +150,6 @@
       opacity: 0.7;
       border-top: 1px solid rgba(232,198,112,0.15);
     }
-
     @media (max-width: 768px) {
       .feature {
         padding: 3rem 5% 4rem;
@@ -179,13 +159,19 @@
       }
       .logo {
         max-width: 220px;
+        margin-top: 2rem;   /* slightly less shift on smaller screens */
       }
       .btn {
         font-size: 1.3rem;
         padding: 1rem 2.5rem;
       }
+      .subtitle {
+        margin-bottom: 3rem;
+      }
+      .buttons {
+        margin-bottom: 1.5rem;
+      }
     }
-
     @media (max-width: 640px) {
       .buttons {
         flex-direction: column;
@@ -195,19 +181,16 @@
   </style>
 </head>
 <body>
-</br></br>
-  <section class="hero"></br></br>
-    <div class="hero-content"></br></br>
+
+  <section class="hero">
+    <div class="hero-content">
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
       <h1>Buccaneer Heroes</h1>
-      <div class="tagline">Rise a hero. Rise for freedom…
-and the world’s end.
-</div>
+      <div class="tagline">Rise a hero. Rise for freedom… and the world’s end.</div>
       <p class="subtitle">
-        A pirate print-and-play board game of plunder, naval combat, buried treasure, and mystical adventure. 
+        A pirate print-and-play board game of plunder, naval combat, buried treasure, and mystical adventure.
         Gather your scallywags, chart your course, and claim your legend… Coming soon.
       </p>
-
       <div class="buttons">
         <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">Visit us on itch.io</a>
       </div>
@@ -233,7 +216,8 @@ and the world’s end.
   <!-- Feature Section 3 -->
   <section class="feature">
     <img src="3.png" alt="Components overview" class="feature-img">
-    <p class="feature-text"> ONLY 2 PAGES TO PRINT<br>
+    <p class="feature-text">
+      ONLY 2 PAGES TO PRINT<br>
       Everything else is paperless<br><br>
       97 Event Cards - digital or print-ready<br>
       2 Game Sheets per player in shared persistent world<br>
