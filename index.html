@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buccaneer Heroes – Coming Soon</title>
   <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
- 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
@@ -30,69 +29,99 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-.hero {
-    position: relative;
-    min-height: 100vh;
-    height: auto;
-    background: linear-gradient(rgba(10, 31, 46, 0.55), rgba(10, 31, 46, 0.75)),
-                url('hero-bg.jpg') center center / cover no-repeat fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5vh 5% 20vh;          /* big bottom padding = button sits lower naturally */
-  }
-
-  .hero-content {
-    max-width: 900px;
-    z-index: 2;
-  }
-
-  .logo {
-    max-width: 300px;
-    width: 60%;
-    height: auto;
-    margin-top: 8rem;              /* tune: 6rem–12rem depending on how low you want logo */
-    margin-bottom: 2.5rem;
-  }
-
-  /* ... h1, tagline unchanged ... */
-
-  .subtitle {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    line-height: 1.6;
-    max-width: 720px;
-    margin: 1.2rem auto 5rem auto;
-    opacity: 0.85;
-  }
-
-  .buttons {
-    margin-bottom: 0;
-  }
-
-  /* ... btn rules unchanged ... */
-
-  .feature {
-    background-color: #0a1f2e;
-    padding: 4rem 5% 6rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .feature:first-of-type {
-    margin-top: -180px;            /* main overlap control — adjust between -120px and -250px */
-    padding-top: 220px;
-    background: transparent;
-  }
-
-  .feature:first-of-type::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 30%, #0a1f2e 70%);
-    z-index: -1;
-    pointer-events: none;
-  }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      height: auto;
+      background: linear-gradient(rgba(10, 31, 46, 0.55), rgba(10, 31, 46, 0.75)),
+                  url('hero-bg.jpg') center center / cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5vh 5% 20vh;
+    }
+    .hero-content {
+      max-width: 900px;
+      z-index: 2;
+    }
+    .logo {
+      max-width: 300px;
+      width: 60%;
+      height: auto;
+      margin-top: 8rem;
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.9);
+      margin-bottom: 0.2em;
+      color: #e8c670;
+    }
+    .tagline {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(1.6rem, 5vw, 3.2rem);
+      font-weight: 400;
+      margin: 0.4em 0 1.5em;
+      opacity: 0.95;
+      letter-spacing: 0.05em;
+    }
+    .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 1.2rem auto 5rem auto;
+      opacity: 0.85;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary {
+      background: #b8860b;
+      color: #0f1620;
+      border: 2px solid #d4a017;
+    }
+    .btn-primary:hover {
+      background: #d4a017;
+      transform: translateY(-4px);
+    }
+    .feature {
+      background-color: #0a1f2e;
+      padding: 4rem 5% 6rem;
+      text-align: center;
+      position: relative;
+    }
+    .feature:first-of-type {
+      margin-top: -180px;
+      padding-top: 220px;
+      background: transparent;
+    }
+    .feature:first-of-type::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, #0a1f2e 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
     .feature-img {
       max-width: 1024px;
       width: 100%;
@@ -131,7 +160,7 @@
       }
       .logo {
         max-width: 220px;
-        margin-top: 2rem;   /* slightly less shift on smaller screens */
+        margin-top: 2rem;
       }
       .btn {
         font-size: 1.3rem;
@@ -152,7 +181,7 @@
     }
   </style>
 </head>
-body>
+<body>
   <section class="hero">
     <div class="hero-content">
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
@@ -216,6 +245,5 @@ body>
   <footer>
     © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
   </footer>
-
 </body>
 </html>
