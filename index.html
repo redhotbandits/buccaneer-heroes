@@ -28,45 +28,60 @@
       background-color: #0a1f2e;
       min-height: 100vh;
       overflow-x: hidden;
+      position: relative;
     }
-
-    /* Dark overlay for the whole page (light so waves show where used) */
+    /* Left side background - fixed, repeats vertically */
     body::after {
       content: "";
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: url('left-background.png') left top / auto repeat-y;
+      background-attachment: fixed;
+      z-index: -3;
+      pointer-events: none;
+    }
+    /* Right side background - fixed, repeats vertically */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url('right-background.png') right top / auto repeat-y;
+      background-attachment: fixed;
+      z-index: -3;
+      pointer-events: none;
+    }
+    /* 80% opacity dark overlay */
+    body::before.overlay {  /* fixed selector syntax */
+      content: "";
+      position: fixed;
       inset: 0;
-      background: rgba(10, 31, 46, 0.65);
+      background: rgba(10, 31, 46, 0.80);
       z-index: -2;
       pointer-events: none;
     }
-
-    /* Hero section: background with soft side fades, top-right focus */
     .hero {
       position: relative;
       min-height: 100vh;
       height: auto;
-      background-image: 
-        linear-gradient(to right, transparent 0%, transparent 15%, #0a1f2e 45%),
-        linear-gradient(to left, transparent 0%, transparent 15%, #0a1f2e 45%),
-        url('background.jpg');
-      background-position: 75% 0;           /* emphasizes top-right interesting part */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      z-index: 1;
+      background: linear-gradient(rgba(10, 31, 46, 0.55), rgba(10, 31, 46, 0.75)),
+                  url('hero-bg.jpg') center center / cover no-repeat fixed;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 5vh 5% 20vh;
+      z-index: 1;
     }
-
     .hero-content {
       max-width: 900px;
       z-index: 2;
-      position: relative;
     }
-
     .logo {
       max-width: 400px;
       width: 70%;
@@ -74,7 +89,6 @@
       margin-top: 2rem;
       margin-bottom: 2.5rem;
     }
-
     h1 {
       font-family: 'Cinzel', serif;
       font-size: clamp(3.5rem, 10vw, 8rem);
@@ -84,7 +98,6 @@
       margin-bottom: 0.2em;
       color: #e8c670;
     }
-
     .tagline {
       font-family: 'IM Fell English SC', serif;
       font-size: clamp(1.6rem, 5vw, 3.2rem);
@@ -93,7 +106,6 @@
       opacity: 0.95;
       letter-spacing: 0.05em;
     }
-
     .subtitle {
       font-size: clamp(1.1rem, 3vw, 1.4rem);
       line-height: 1.6;
@@ -101,7 +113,6 @@
       margin: 1.2rem auto 5rem auto;
       opacity: 0.85;
     }
-
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -109,7 +120,6 @@
       justify-content: center;
       margin-bottom: 0;
     }
-
     .btn {
       display: inline-block;
       padding: 1.2rem 2.5rem;
@@ -121,19 +131,15 @@
       cursor: pointer;
       letter-spacing: 0.05em;
     }
-
     .btn-primary {
       background: #b8860b;
       color: #ffffff;
       border: 2px solid #d4a017;
     }
-
     .btn-primary:hover {
       background: #d4a017;
       transform: translateY(-4px);
     }
-
-    /* Feature sections: solid color, no background image */
     .feature {
       background-color: #0a1f2e;
       padding: 4rem 5% 6rem;
@@ -141,12 +147,19 @@
       position: relative;
       z-index: 1;
     }
-
     .feature:first-of-type {
       margin-top: -180px;
       padding-top: 220px;
+      background: transparent;
     }
-
+    .feature:first-of-type::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, #0a1f2e 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
     .feature-img {
       max-width: 1024px;
       width: 100%;
@@ -155,28 +168,23 @@
       margin: 0 auto 2.5rem;
       display: block;
     }
-
     .feature-text {
       font-family: 'IM Fell English SC', serif;
       font-size: clamp(1.6rem, 4.5vw, 2.4rem);
       line-height: 1.45;
       max-width: 900px;
       margin: 0 auto;
-      color: #f4e8d1;
+      color: #f4e8d1;                    /* changed to your requested base color */
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       letter-spacing: 0.03em;
     }
-
     .highlight {
-      color: #e8c670;
-      font-weight: 700;
+      color: #e8c670;                    /* golden for the special phrases */
+      font-weight: 700;                  /* optional: makes them stand out more */
     }
-
     .feature:nth-child(even) {
       background-color: #0d2537;
     }
-
-    /* Footer: same background image with fades */
     footer {
       position: relative;
       padding: 3rem 5% 2rem;
@@ -185,16 +193,7 @@
       opacity: 0.7;
       border-top: 1px solid rgba(232,198,112,0.15);
       z-index: 1;
-      background-image: 
-        linear-gradient(to right, transparent 0%, transparent 15%, #0a1f2e 45%),
-        linear-gradient(to left, transparent 0%, transparent 15%, #0a1f2e 45%),
-        url('background.jpg');
-      background-position: 75% 100%;        /* bottom-right bias for footer */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: scroll;        /* scroll instead of fixed for footer */
     }
-
     .footer-logo {
       display: block;
       width: 100px;
@@ -202,12 +201,7 @@
       margin: 1.5rem auto;
       object-fit: contain;
     }
-
     @media (max-width: 768px) {
-      .hero,
-      footer {
-        background-position: 70% 0;       /* adjust focus slightly on mobile */
-      }
       .feature {
         padding: 3rem 5% 4rem;
       }
@@ -228,8 +222,10 @@
       .buttons {
         margin-bottom: 1.5rem;
       }
+      body::after, body::before {
+        width: 30%;
+      }
     }
-
     @media (max-width: 640px) {
       .buttons {
         flex-direction: column;
@@ -269,7 +265,7 @@
     </p>
   </section>
 
-  <!-- Feature Section 3 -->
+  <!-- Feature Section 3 (with highlighted phrases) -->
   <section class="feature">
     <img src="3.png" alt="Components overview" class="feature-img">
     <p class="feature-text">
