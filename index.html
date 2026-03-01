@@ -31,41 +31,14 @@
       position: relative;
     }
 
-    /* Left side background - fixed, repeats vertically */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50%;                    /* covers left half; adjust if you want narrower */
-      height: 100%;
-      background: url('left-background.png') left top / auto repeat-y;
-      background-attachment: fixed;
-      z-index: -3;                   /* deepest layer */
-      pointer-events: none;
-    }
-
-    /* Right side background - fixed, repeats vertically */
+    /* Repeating 80% opacity dark overlay across the entire page */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      right: 0;
-      width: 50%;                    /* covers right half */
-      height: 100%;
-      background: url('right-background.png') right top / auto repeat-y;
-      background-attachment: fixed;
-      z-index: -3;
-      pointer-events: none;
-    }
-
-    /* 80% opacity dark overlay over everything (including side images) */
-    body .overlay {
-      content: "";
-      position: fixed;
       inset: 0;
-      background: rgba(10, 31, 46, 0.80);
-      z-index: -2;
+      background: linear-gradient(to bottom, rgba(10, 31, 46, 0.80), rgba(10, 31, 46, 0.80));
+      background-repeat: repeat-y;
+      z-index: -2; /* behind content, but above any pure color bg */
       pointer-events: none;
     }
 
@@ -80,7 +53,7 @@
       justify-content: center;
       text-align: center;
       padding: 5vh 5% 20vh;
-      z-index: 1;
+      z-index: 1; /* ensure content is above the overlay */
     }
     .hero-content {
       max-width: 900px;
@@ -126,9 +99,9 @@
     }
     .btn {
       display: inline-block;
-      padding: 1.2rem 2.5rem;
+      padding: 1.2rem 2.5rem; /* balanced padding */
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 700; /* bold text */
       text-decoration: none;
       border-radius: 50px;
       transition: all 0.3s ease;
@@ -137,7 +110,7 @@
     }
     .btn-primary {
       background: #b8860b;
-      color: #ffffff;
+      color: #ffffff; /* changed to white */
       border: 2px solid #d4a017;
     }
     .btn-primary:hover {
@@ -215,10 +188,6 @@
       .buttons {
         margin-bottom: 1.5rem;
       }
-      /* On mobile, side backgrounds become less useful → optional: hide or narrow */
-      body::after, body::before {
-        width: 30%; /* narrower on small screens */
-      }
     }
     @media (max-width: 640px) {
       .buttons {
@@ -229,8 +198,6 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div> <!-- This is actually handled in CSS via ::before - but kept for clarity if you want to adjust -->
-
   <section class="hero">
     <div class="hero-content">
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
