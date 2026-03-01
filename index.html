@@ -33,8 +33,15 @@
 
       /* 🔥 Layered backgrounds (left + right) */
       background:
-        url('left-background.png') left top repeat-y,
-        url('right-background.png') right top repeat-y;
+       /* Dark center reinforcement */
+  linear-gradient(to right,
+    #0a1f2e 0%,
+    #0a1f2e 40%,
+    #0a1f2e 60%,
+    #0a1f2e 100%
+  ),
+  url('left-background.png') left top repeat-y,
+  url('right-background.png') right top repeat-y;
       background-size: auto, auto;
       background-attachment: fixed, fixed;
     }
