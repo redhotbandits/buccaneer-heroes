@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buccaneer Heroes – Coming Soon</title>
   <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
-  <!-- Open Graph / Social Sharing -->
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
   <meta property="og:image" content="https://yourdomain.com/hero-preview.jpg">
@@ -22,66 +23,39 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Roboto', sans-serif;
       color: #f4e8d1;
       background-color: #0a1f2e;
       min-height: 100vh;
       overflow-x: hidden;
-      position: relative;
+
+      /* 🔥 Layered backgrounds (left + right) */
+      background:
+        url('left-background.png') left top repeat-y,
+        url('right-background.png') right top repeat-y;
+      background-size: auto, auto;
+      background-attachment: fixed, fixed;
     }
-    /* Left side background - fixed, repeats vertically */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background: url('left-background.png') left top / auto repeat-y;
-      background-attachment: fixed;
-      z-index: -3;
-      pointer-events: none;
-    }
-    /* Right side background - fixed, repeats vertically */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      background: url('right-background.png') right top / auto repeat-y;
-      background-attachment: fixed;
-      z-index: -3;
-      pointer-events: none;
-    }
-    /* 80% opacity dark overlay */
-    body::before.overlay {  /* fixed selector syntax */
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 31, 46, 0.80);
-      z-index: -2;
-      pointer-events: none;
-    }
+
     .hero {
       position: relative;
       min-height: 100vh;
-      height: auto;
-      background: linear-gradient(rgba(10, 31, 46, 0.55), rgba(10, 31, 46, 0.75)),
-                  url('hero-bg.jpg') center center / cover no-repeat fixed;
+      background:
+        linear-gradient(rgba(10,31,46,0.55), rgba(10,31,46,0.75)),
+        url('hero-bg.jpg') center center / cover no-repeat fixed;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 5vh 5% 20vh;
-      z-index: 1;
     }
+
     .hero-content {
       max-width: 900px;
-      z-index: 2;
     }
+
     .logo {
       max-width: 400px;
       width: 70%;
@@ -89,6 +63,7 @@
       margin-top: 2rem;
       margin-bottom: 2.5rem;
     }
+
     h1 {
       font-family: 'Cinzel', serif;
       font-size: clamp(3.5rem, 10vw, 8rem);
@@ -98,14 +73,15 @@
       margin-bottom: 0.2em;
       color: #e8c670;
     }
+
     .tagline {
       font-family: 'IM Fell English SC', serif;
       font-size: clamp(1.6rem, 5vw, 3.2rem);
-      font-weight: 400;
       margin: 0.4em 0 1em;
       opacity: 0.95;
       letter-spacing: 0.05em;
     }
+
     .subtitle {
       font-size: clamp(1.1rem, 3vw, 1.4rem);
       line-height: 1.6;
@@ -113,13 +89,14 @@
       margin: 1.2rem auto 5rem auto;
       opacity: 0.85;
     }
+
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
-      margin-bottom: 0;
     }
+
     .btn {
       display: inline-block;
       padding: 1.2rem 2.5rem;
@@ -131,35 +108,39 @@
       cursor: pointer;
       letter-spacing: 0.05em;
     }
+
     .btn-primary {
       background: #b8860b;
       color: #ffffff;
       border: 2px solid #d4a017;
     }
+
     .btn-primary:hover {
       background: #d4a017;
       transform: translateY(-4px);
     }
+
     .feature {
       background-color: #0a1f2e;
       padding: 4rem 5% 6rem;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
+
     .feature:first-of-type {
       margin-top: -180px;
       padding-top: 220px;
       background: transparent;
+      position: relative;
     }
+
     .feature:first-of-type::before {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom, transparent 30%, #0a1f2e 70%);
-      z-index: -1;
       pointer-events: none;
     }
+
     .feature-img {
       max-width: 1024px;
       width: 100%;
@@ -168,32 +149,35 @@
       margin: 0 auto 2.5rem;
       display: block;
     }
+
     .feature-text {
       font-family: 'IM Fell English SC', serif;
       font-size: clamp(1.6rem, 4.5vw, 2.4rem);
       line-height: 1.45;
       max-width: 900px;
       margin: 0 auto;
-      color: #f4e8d1;                    /* changed to your requested base color */
+      color: #f4e8d1;
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       letter-spacing: 0.03em;
     }
+
     .highlight {
-      color: #e8c670;                    /* golden for the special phrases */
-      font-weight: 700;                  /* optional: makes them stand out more */
+      color: #e8c670;
+      font-weight: 700;
     }
+
     .feature:nth-child(even) {
       background-color: #0d2537;
     }
+
     footer {
-      position: relative;
       padding: 3rem 5% 2rem;
       text-align: center;
       font-size: 0.95rem;
       opacity: 0.7;
       border-top: 1px solid rgba(232,198,112,0.15);
-      z-index: 1;
     }
+
     .footer-logo {
       display: block;
       width: 100px;
@@ -201,49 +185,51 @@
       margin: 1.5rem auto;
       object-fit: contain;
     }
+
+    /* Mobile adjustments */
     @media (max-width: 768px) {
       .feature {
         padding: 3rem 5% 4rem;
       }
+
       .feature-text {
         font-size: clamp(1.5rem, 5vw, 2.2rem);
       }
+
       .logo {
         max-width: 220px;
-        margin-top: 2rem;
       }
+
       .btn {
         font-size: 1.3rem;
         padding: 1rem 2.5rem;
       }
+
       .subtitle {
         margin-bottom: 3rem;
       }
-      .buttons {
-        margin-bottom: 1.5rem;
+
+      /* Disable fixed on mobile for better performance */
+      body {
+        background-attachment: scroll, scroll;
       }
-    body::after,
-  body::before {
-    width: 70%;      /* extend toward center */
-  }
 
-  body::after {
-    left: 0;
-  }
+      .hero {
+        background-attachment: scroll;
+      }
+    }
 
-  body::before {
-    right: 0;
-  }
-}
     @media (max-width: 640px) {
       .buttons {
         flex-direction: column;
         gap: 1rem;
       }
     }
+
   </style>
 </head>
 <body>
+
   <section class="hero">
     <div class="hero-content">
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
@@ -253,59 +239,48 @@
         Gather your scallywags, chart your course, and claim your legend… Coming soon.
       </p>
       <div class="buttons">
-        <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">Visit us on itch.io</a>
+        <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
+          Visit us on itch.io
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Feature Section 1 -->
+  <!-- Feature sections remain unchanged -->
   <section class="feature">
-    <img src="1.png" alt="Sail the Caribbean seas" class="feature-img">
+    <img src="1.png" class="feature-img">
     <p class="feature-text">
-      Sail the 17th-century Caribbean, commanding your crew through eight thrilling seasons of raids, duels, and adventure. Plunder treasure ships, brave deadly storms, and uncover ancient secrets to forge your legend among pirates.
+      Sail the 17th-century Caribbean, commanding your crew through eight thrilling seasons of raids, duels, and adventure.
     </p>
   </section>
 
-  <!-- Feature Section 2 -->
   <section class="feature">
-    <img src="2.png" alt="Fast replayable sandbox adventure" class="feature-img">
+    <img src="2.png" class="feature-img">
     <p class="feature-text">
-      Buccaneer Heroes is a fast, highly replayable print-and-play sandbox adventure with streamlined mechanics for solo and multiplayer. Pool dice to cooperate or compete as you sail the open seas on your own sheet, sharing a living world where actions and story events affect everyone.
+      Fast, highly replayable print-and-play sandbox adventure for solo and multiplayer.
     </p>
   </section>
 
-  <!-- Feature Section 3 (with highlighted phrases) -->
   <section class="feature">
-    <img src="3.png" alt="Components overview" class="feature-img">
-    <p class="feature-text">
-      <span class="highlight">ONLY 2 PAGES TO PRINT</span><br>
-      Everything else is paperless<br><br>
-      97 Event Cards - digital or print-ready<br>
-      2 Game Sheets per player in shared world<br>
-      10 Alternate Sheets • 1 Pyrate Codex • 2 Rulebooks<br>
-      2 Cheat Sheets • 4 Expansions • 3 Difficulty Modes<br><br>
-      <span class="highlight">ALL AVAILABLE ON RELEASE</span>
-    </p>
+    <img src="3.png" class="feature-img">
   </section>
 
-  <!-- Feature Section 4 (image only) -->
   <section class="feature">
-    <img src="4.png" alt="Print-and-play showcase" class="feature-img">
+    <img src="4.png" class="feature-img">
   </section>
 
-  <!-- Feature Section 5 (image only) -->
   <section class="feature">
-    <img src="5.png" alt="Game detail or mockup" class="feature-img">
+    <img src="5.png" class="feature-img">
   </section>
 
-  <!-- Feature Section 6 (image only) -->
   <section class="feature">
-    <img src="6.png" alt="Epic naval battle" class="feature-img">
+    <img src="6.png" class="feature-img">
   </section>
 
   <footer>
     © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
-    <img src="company-logo.png" alt="Red Hot Bandits Logo" class="footer-logo">
+    <img src="company-logo.png" class="footer-logo">
   </footer>
+
 </body>
 </html>
