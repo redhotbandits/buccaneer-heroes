@@ -222,10 +222,19 @@
       .buttons {
         margin-bottom: 1.5rem;
       }
-      body::after, body::before {
-        width: 30%;
-      }
-    }
+    body::after,
+  body::before {
+    width: 70%;      /* extend toward center */
+  }
+
+  body::after {
+    left: 0;
+  }
+
+  body::before {
+    right: 0;
+  }
+}
     @media (max-width: 640px) {
       .buttons {
         flex-direction: column;
