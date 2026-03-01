@@ -30,7 +30,6 @@
       overflow-x: hidden;
       position: relative;
     }
-
     /* Left side background - fixed, repeats vertically */
     body::after {
       content: "";
@@ -44,7 +43,6 @@
       z-index: -3;
       pointer-events: none;
     }
-
     /* Right side background - fixed, repeats vertically */
     body::before {
       content: "";
@@ -58,9 +56,8 @@
       z-index: -3;
       pointer-events: none;
     }
-
     /* 80% opacity dark overlay */
-    body .overlay {
+    body::before.overlay {  /* fixed selector syntax */
       content: "";
       position: fixed;
       inset: 0;
@@ -68,7 +65,6 @@
       z-index: -2;
       pointer-events: none;
     }
-
     .hero {
       position: relative;
       min-height: 100vh;
@@ -178,9 +174,13 @@
       line-height: 1.45;
       max-width: 900px;
       margin: 0 auto;
-      color: #e8c670;
+      color: #f4e8d1;                    /* changed to your requested base color */
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       letter-spacing: 0.03em;
+    }
+    .highlight {
+      color: #e8c670;                    /* golden for the special phrases */
+      font-weight: 700;                  /* optional: makes them stand out more */
     }
     .feature:nth-child(even) {
       background-color: #0d2537;
@@ -265,17 +265,17 @@
     </p>
   </section>
 
-  <!-- Feature Section 3 -->
+  <!-- Feature Section 3 (with highlighted phrases) -->
   <section class="feature">
     <img src="3.png" alt="Components overview" class="feature-img">
     <p class="feature-text">
-      ONLY 2 PAGES TO PRINT<br>
+      <span class="highlight">ONLY 2 PAGES TO PRINT</span><br>
       Everything else is paperless<br><br>
       97 Event Cards - digital or print-ready<br>
       2 Game Sheets per player in shared persistent world<br>
       10 Alternate Sheets • 1 Pyrate Codex • 2 Rulebooks<br>
       2 Cheat Sheets • 4 Expansions • 3 Difficulty Modes<br><br>
-      ALL AVAILABLE NOW!
+      <span class="highlight">ALL AVAILABLE NOW!</span>
     </p>
   </section>
 
