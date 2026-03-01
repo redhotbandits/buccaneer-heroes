@@ -6,7 +6,6 @@
   <title>Buccaneer Heroes – Coming Soon</title>
   <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
   <meta property="og:image" content="https://yourdomain.com/hero-preview.jpg">
@@ -25,32 +24,32 @@
     }
 
     body {
-  font-family: 'Roboto', sans-serif;
-  color: #f4e8d1;
-  background-color: #0a1f2e;
-  min-height: 100vh;
-  overflow-x: hidden;
+      font-family: 'Roboto', sans-serif;
+      color: #f4e8d1;
+      background-color: #0a1f2e;
+      min-height: 100vh;
+      overflow-x: hidden;
 
-  background-image:
-    url('left-background.png'),
-    url('right-background.png');
+      background-image:
+        url('left-background.png'),
+        url('right-background.png');
 
-  background-position:
-    left top,
-    right top;
+      background-position:
+        left top,
+        right top;
 
-  background-repeat:
-    repeat-y,
-    repeat-y;
+      background-repeat:
+        repeat-y,
+        repeat-y;
 
-  background-size:
-    auto,
-    auto;
+      background-size:
+        auto,
+        auto;
 
-  background-attachment:
-    fixed,
-    fixed;
-}
+      background-attachment:
+        fixed,
+        fixed;
+    }
 
     .hero {
       position: relative;
@@ -75,16 +74,6 @@
       height: auto;
       margin-top: 2rem;
       margin-bottom: 2.5rem;
-    }
-
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.9);
-      margin-bottom: 0.2em;
-      color: #e8c670;
     }
 
     .tagline {
@@ -133,25 +122,15 @@
       transform: translateY(-4px);
     }
 
+    /* 🔥 80% opacity sections */
     .feature {
-      background-color: #0a1f2e;
+      background-color: rgba(10, 31, 46, 0.8);
       padding: 4rem 5% 6rem;
       text-align: center;
     }
 
-    .feature:first-of-type {
-      margin-top: -180px;
-      padding-top: 220px;
-      background: transparent;
-      position: relative;
-    }
-
-    .feature:first-of-type::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 30%, #0a1f2e 70%);
-      pointer-events: none;
+    .feature:nth-child(even) {
+      background-color: rgba(13, 37, 55, 0.8);
     }
 
     .feature-img {
@@ -174,20 +153,12 @@
       letter-spacing: 0.03em;
     }
 
-    .highlight {
-      color: #e8c670;
-      font-weight: 700;
-    }
-
-    .feature:nth-child(even) {
-      background-color: #0d2537;
-    }
-
     footer {
+      background-color: rgba(10, 31, 46, 0.8);
       padding: 3rem 5% 2rem;
       text-align: center;
       font-size: 0.95rem;
-      opacity: 0.7;
+      opacity: 0.9;
       border-top: 1px solid rgba(232,198,112,0.15);
     }
 
@@ -199,30 +170,7 @@
       object-fit: contain;
     }
 
-    /* Mobile adjustments */
     @media (max-width: 768px) {
-      .feature {
-        padding: 3rem 5% 4rem;
-      }
-
-      .feature-text {
-        font-size: clamp(1.5rem, 5vw, 2.2rem);
-      }
-
-      .logo {
-        max-width: 220px;
-      }
-
-      .btn {
-        font-size: 1.3rem;
-        padding: 1rem 2.5rem;
-      }
-
-      .subtitle {
-        margin-bottom: 3rem;
-      }
-
-      /* Disable fixed on mobile for better performance */
       body {
         background-attachment: scroll, scroll;
       }
@@ -230,9 +178,7 @@
       .hero {
         background-attachment: scroll;
       }
-    }
 
-    @media (max-width: 640px) {
       .buttons {
         flex-direction: column;
         gap: 1rem;
@@ -259,11 +205,10 @@
     </div>
   </section>
 
-  <!-- Feature sections remain unchanged -->
   <section class="feature">
     <img src="1.png" class="feature-img">
     <p class="feature-text">
-      Sail the 17th-century Caribbean, commanding your crew through eight thrilling seasons of raids, duels, and adventure.
+      Sail the 17th-century Caribbean through eight thrilling seasons of raids, duels, and adventure.
     </p>
   </section>
 
@@ -274,21 +219,10 @@
     </p>
   </section>
 
-  <section class="feature">
-    <img src="3.png" class="feature-img">
-  </section>
-
-  <section class="feature">
-    <img src="4.png" class="feature-img">
-  </section>
-
-  <section class="feature">
-    <img src="5.png" class="feature-img">
-  </section>
-
-  <section class="feature">
-    <img src="6.png" class="feature-img">
-  </section>
+  <section class="feature"><img src="3.png" class="feature-img"></section>
+  <section class="feature"><img src="4.png" class="feature-img"></section>
+  <section class="feature"><img src="5.png" class="feature-img"></section>
+  <section class="feature"><img src="6.png" class="feature-img"></section>
 
   <footer>
     © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
