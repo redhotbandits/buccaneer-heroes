@@ -25,26 +25,32 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      color: #f4e8d1;
-      background-color: #0a1f2e;
-      min-height: 100vh;
-      overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: #f4e8d1;
+  background-color: #0a1f2e;
+  min-height: 100vh;
+  overflow-x: hidden;
 
-      /* 🔥 Layered backgrounds (left + right) */
-      background:
-       /* Dark center reinforcement */
- linear-gradient(to right,
-  rgba(10,31,46,0.95) 0%,
-  rgba(10,31,46,0.85) 45%,
-  rgba(10,31,46,0.85) 55%,
-  rgba(10,31,46,0.95) 100%
-),
-  url('left-background.png') left top repeat-y,
-  url('right-background.png') right top repeat-y;
-      background-size: auto, auto;
-      background-attachment: fixed, fixed;
-    }
+  background-image:
+    url('left-background.png'),
+    url('right-background.png');
+
+  background-position:
+    left top,
+    right top;
+
+  background-repeat:
+    repeat-y,
+    repeat-y;
+
+  background-size:
+    auto,
+    auto;
+
+  background-attachment:
+    fixed,
+    fixed;
+}
 
     .hero {
       position: relative;
