@@ -16,81 +16,146 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Roboto', sans-serif;
-    color: #f4e8d1;
-    background-color: #0a1f2e;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-  }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #f4e8d1;
+      background-color: #0a1f2e;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-  /* Single background image – visible full height, fades softly on sides */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: 
-      linear-gradient(to right, transparent 0%, transparent 10%, #0a1f2e 35%),
-      linear-gradient(to left, transparent 0%, transparent 10%, #0a1f2e 35%),
-      url('background.jpg');
-    background-position: 80% 0;          /* focuses on top-right interesting area */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: -3;
-    pointer-events: none;
-  }
+    /* Single background image with soft fades on left and right */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, transparent 0%, transparent 15%, #0a1f2e 40%),
+        linear-gradient(to left, transparent 0%, transparent 15%, #0a1f2e 40%),
+        url('background.jpg');
+      background-position: 75% 0;           /* biased toward top-right interesting area */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      z-index: -3;
+      pointer-events: none;
+    }
 
-  /* Dark overlay – reduced to 65% so waves are more visible */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 31, 46, 0.65);
-    z-index: -2;
-    pointer-events: none;
-  }
+    /* Dark overlay – lighter so waves are visible in content area */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 31, 46, 0.65);
+      z-index: -2;
+      pointer-events: none;
+    }
 
-  /* Hero: solid dark surface – no waves visible behind content */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    height: auto;
-    background: rgba(10, 31, 46, 0.92);   /* strong solid color block */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5vh 5% 20vh;
-    z-index: 1;
-  }
+    /* Hero section: solid dark background – no waves visible here */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      height: auto;
+      background: rgba(10, 31, 46, 0.94);   /* strong solid color – hides waves */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5vh 5% 20vh;
+      z-index: 1;
+    }
 
-  .hero-content {
-    max-width: 900px;
-    z-index: 2;
-    position: relative;
-  }
+    .hero-content {
+      max-width: 900px;
+      z-index: 2;
+      position: relative;
+    }
 
-  /* ... all your other styles (logo, h1, tagline, subtitle, buttons, .btn, .feature, etc.) remain unchanged ... */
+    .logo {
+      max-width: 400px;
+      width: 70%;
+      height: auto;
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
 
-  .feature {
-    background-color: transparent;        /* let the body background show through */
-    padding: 4rem 5% 6rem;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.9);
+      margin-bottom: 0.2em;
+      color: #e8c670;
+    }
 
-  .feature:first-of-type {
-    margin-top: -180px;
-    padding-top: 220px;
-  }
+    .tagline {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(1.6rem, 5vw, 3.2rem);
+      font-weight: 400;
+      margin: 0.4em 0 1em;
+      opacity: 0.95;
+      letter-spacing: 0.05em;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 1.2rem auto 5rem auto;
+      opacity: 0.85;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-primary {
+      background: #b8860b;
+      color: #ffffff;
+      border: 2px solid #d4a017;
+    }
+
+    .btn-primary:hover {
+      background: #d4a017;
+      transform: translateY(-4px);
+    }
+
+    .feature {
+      background-color: transparent;        /* show the body background (waves) */
+      padding: 4rem 5% 6rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature:first-of-type {
+      margin-top: -180px;
+      padding-top: 220px;
+    }
 
     .feature-img {
       max-width: 1024px;
@@ -118,7 +183,7 @@
     }
 
     .feature:nth-child(even) {
-      background-color: rgba(13, 37, 55, 0.4); /* subtle tint when needed */
+      background-color: rgba(13, 37, 55, 0.4);
     }
 
     footer {
@@ -140,6 +205,9 @@
     }
 
     @media (max-width: 768px) {
+      body::before {
+        background-position: 70% 0;      /* slightly adjusted for smaller screens */
+      }
       .feature {
         padding: 3rem 5% 4rem;
       }
