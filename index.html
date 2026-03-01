@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buccaneer Heroes – Coming Soon</title>
   <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
+  <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
   <meta property="og:image" content="https://yourdomain.com/hero-preview.jpg">
@@ -27,48 +28,37 @@
       background-color: #0a1f2e;
       min-height: 100vh;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* Single background – gentle fade on sides, focus top-right */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, transparent 0%, transparent 20%, rgba(10,31,46,0.6) 45%),
-        linear-gradient(to left, transparent 0%, transparent 20%, rgba(10,31,46,0.6) 45%),
-        url('background.jpg');
-      background-position: 75% 0;           /* top-right bias – change to 60% 0 or 85% 0 if needed */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      z-index: -3;
-      pointer-events: none;
-    }
-
-    /* Overlay – much lighter so image is visible */
+    /* Dark overlay for the whole page (light so waves show where used) */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(10, 31, 46, 0.45);
+      background: rgba(10, 31, 46, 0.65);
       z-index: -2;
       pointer-events: none;
     }
 
-    /* Hero stays solid – no waves behind logo etc. */
+    /* Hero section: background with soft side fades, top-right focus */
     .hero {
       position: relative;
       min-height: 100vh;
       height: auto;
-      background: rgba(10, 31, 46, 0.94);
+      background-image: 
+        linear-gradient(to right, transparent 0%, transparent 15%, #0a1f2e 45%),
+        linear-gradient(to left, transparent 0%, transparent 15%, #0a1f2e 45%),
+        url('background.jpg');
+      background-position: 75% 0;           /* emphasizes top-right interesting part */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 5vh 5% 20vh;
-      z-index: 1;
     }
 
     .hero-content {
@@ -143,8 +133,9 @@
       transform: translateY(-4px);
     }
 
+    /* Feature sections: solid color, no background image */
     .feature {
-      background-color: transparent;
+      background-color: #0a1f2e;
       padding: 4rem 5% 6rem;
       text-align: center;
       position: relative;
@@ -182,9 +173,10 @@
     }
 
     .feature:nth-child(even) {
-      background-color: rgba(13, 37, 55, 0.4);
+      background-color: #0d2537;
     }
 
+    /* Footer: same background image with fades */
     footer {
       position: relative;
       padding: 3rem 5% 2rem;
@@ -193,6 +185,14 @@
       opacity: 0.7;
       border-top: 1px solid rgba(232,198,112,0.15);
       z-index: 1;
+      background-image: 
+        linear-gradient(to right, transparent 0%, transparent 15%, #0a1f2e 45%),
+        linear-gradient(to left, transparent 0%, transparent 15%, #0a1f2e 45%),
+        url('background.jpg');
+      background-position: 75% 100%;        /* bottom-right bias for footer */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;        /* scroll instead of fixed for footer */
     }
 
     .footer-logo {
@@ -204,8 +204,9 @@
     }
 
     @media (max-width: 768px) {
-      body::before {
-        background-position: 65% 0;      /* adjusted for mobile */
+      .hero,
+      footer {
+        background-position: 70% 0;       /* adjust focus slightly on mobile */
       }
       .feature {
         padding: 3rem 5% 4rem;
@@ -282,17 +283,17 @@
     </p>
   </section>
 
-  <!-- Feature Section 4 -->
+  <!-- Feature Section 4 (image only) -->
   <section class="feature">
     <img src="4.png" alt="Print-and-play showcase" class="feature-img">
   </section>
 
-  <!-- Feature Section 5 -->
+  <!-- Feature Section 5 (image only) -->
   <section class="feature">
     <img src="5.png" alt="Game detail or mockup" class="feature-img">
   </section>
 
-  <!-- Feature Section 6 -->
+  <!-- Feature Section 6 (image only) -->
   <section class="feature">
     <img src="6.png" alt="Epic naval battle" class="feature-img">
   </section>
