@@ -181,4 +181,125 @@
       font-weight: 700;
     }
 
-    .
+    .feature:nth-child(even) {
+      background-color: rgba(13, 37, 55, 0.4);
+    }
+
+    footer {
+      position: relative;
+      padding: 3rem 5% 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      border-top: 1px solid rgba(232,198,112,0.15);
+      z-index: 1;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 1.5rem auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      body::before {
+        background-position: 65% 0;      /* adjusted for mobile */
+      }
+      .feature {
+        padding: 3rem 5% 4rem;
+      }
+      .feature-text {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+      }
+      .logo {
+        max-width: 220px;
+        margin-top: 2rem;
+      }
+      .btn {
+        font-size: 1.3rem;
+        padding: 1rem 2.5rem;
+      }
+      .subtitle {
+        margin-bottom: 3rem;
+      }
+      .buttons {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
+      <div class="tagline">Rise, hero. Rise for freedom… and the world’s end.</div>
+      <p class="subtitle">
+        A pirate print-and-play board game of plunder, naval combat, buried treasure, and mystical adventure.
+        Gather your scallywags, chart your course, and claim your legend… Coming soon.
+      </p>
+      <div class="buttons">
+        <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">Visit us on itch.io</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Section 1 -->
+  <section class="feature">
+    <img src="1.png" alt="Sail the Caribbean seas" class="feature-img">
+    <p class="feature-text">
+      Sail the 17th-century Caribbean, commanding your crew through eight thrilling seasons of raids, duels, and adventure. Plunder treasure ships, brave deadly storms, and uncover ancient secrets to forge your legend among pirates.
+    </p>
+  </section>
+
+  <!-- Feature Section 2 -->
+  <section class="feature">
+    <img src="2.png" alt="Fast replayable sandbox adventure" class="feature-img">
+    <p class="feature-text">
+      Buccaneer Heroes is a fast, highly replayable print-and-play sandbox adventure with streamlined mechanics for solo and multiplayer. Pool dice to cooperate or compete as you sail the open seas on your own sheet, sharing a living world where actions and story events affect everyone.
+    </p>
+  </section>
+
+  <!-- Feature Section 3 -->
+  <section class="feature">
+    <img src="3.png" alt="Components overview" class="feature-img">
+    <p class="feature-text">
+      <span class="highlight">ONLY 2 PAGES TO PRINT</span><br>
+      Everything else is paperless<br><br>
+      97 Event Cards - digital or print-ready<br>
+      2 Game Sheets per player in shared world<br>
+      10 Alternate Sheets • 1 Pyrate Codex • 2 Rulebooks<br>
+      2 Cheat Sheets • 4 Expansions • 3 Difficulty Modes<br><br>
+      <span class="highlight">ALL AVAILABLE ON RELEASE</span>
+    </p>
+  </section>
+
+  <!-- Feature Section 4 -->
+  <section class="feature">
+    <img src="4.png" alt="Print-and-play showcase" class="feature-img">
+  </section>
+
+  <!-- Feature Section 5 -->
+  <section class="feature">
+    <img src="5.png" alt="Game detail or mockup" class="feature-img">
+  </section>
+
+  <!-- Feature Section 6 -->
+  <section class="feature">
+    <img src="6.png" alt="Epic naval battle" class="feature-img">
+  </section>
+
+  <footer>
+    © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
+    <img src="company-logo.png" alt="Red Hot Bandits Logo" class="footer-logo">
+  </footer>
+</body>
+</html>
