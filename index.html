@@ -37,11 +37,11 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 50%;                    /* covers left half; adjust if you want narrower */
+      width: 50%;
       height: 100%;
       background: url('left-background.png') left top / auto repeat-y;
       background-attachment: fixed;
-      z-index: -3;                   /* deepest layer */
+      z-index: -3;
       pointer-events: none;
     }
 
@@ -51,7 +51,7 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 50%;                    /* covers right half */
+      width: 50%;
       height: 100%;
       background: url('right-background.png') right top / auto repeat-y;
       background-attachment: fixed;
@@ -59,12 +59,12 @@
       pointer-events: none;
     }
 
-    /* 30% opacity dark overlay over everything (including side images) */
+    /* 80% opacity dark overlay */
     body .overlay {
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(10, 31, 46, 0.30);
+      background: rgba(10, 31, 46, 0.80);
       z-index: -2;
       pointer-events: none;
     }
@@ -100,7 +100,7 @@
       letter-spacing: 0.08em;
       text-shadow: 0 4px 12px rgba(0,0,0,0.9);
       margin-bottom: 0.2em;
-      color: #0a1f2e;
+      color: #e8c670;
     }
     .tagline {
       font-family: 'IM Fell English SC', serif;
@@ -178,7 +178,7 @@
       line-height: 1.45;
       max-width: 900px;
       margin: 0 auto;
-      color: #f4e8d1;
+      color: #e8c670;
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       letter-spacing: 0.03em;
     }
@@ -187,12 +187,19 @@
     }
     footer {
       position: relative;
-      padding: 2rem 5%;
+      padding: 3rem 5% 4rem;
       text-align: center;
       font-size: 0.95rem;
       opacity: 0.7;
       border-top: 1px solid rgba(232,198,112,0.15);
       z-index: 1;
+    }
+    .footer-logo {
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 1.5rem auto 0.5rem;
+      object-fit: contain;
     }
     @media (max-width: 768px) {
       .feature {
@@ -215,9 +222,8 @@
       .buttons {
         margin-bottom: 1.5rem;
       }
-      /* On mobile, side backgrounds become less useful → optional: hide or narrow */
       body::after, body::before {
-        width: 30%; /* narrower on small screens */
+        width: 30%;
       }
     }
     @media (max-width: 640px) {
@@ -229,8 +235,6 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div> <!-- This is actually handled in CSS via ::before - but kept for clarity if you want to adjust -->
-
   <section class="hero">
     <div class="hero-content">
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
@@ -292,6 +296,7 @@
 
   <footer>
     © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
+    <img src="company-logo.png" alt="Red Hot Bandits Logo" class="footer-logo">
   </footer>
 </body>
 </html>
