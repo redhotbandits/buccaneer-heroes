@@ -142,7 +142,7 @@
       transform: translateY(-4px);
     }
 
-    /* ── Feature sections (before game-section) ── */
+    /* ── Feature sections ── */
     .feature {
       background-color: rgba(10, 31, 46, 0.94);
       padding: 4rem 5% 6rem;
@@ -183,10 +183,14 @@
       font-weight: 100;
     }
 
-    /* ── Game Section (updated) ── */
+    /* ── Game Section (updated: full-width bg, centered content) ── */
     .game-section {
       padding: 5rem 5%;
       background-color: rgba(10, 31, 46, 0.94);
+      width: 100%;                /* full viewport width for background */
+    }
+
+    .game-section > .content-wrapper {
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -205,9 +209,6 @@
       gap: 3rem;
       align-items: center;
       margin-bottom: 5rem;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .tile.reverse {
@@ -224,11 +225,11 @@
 
     .tile-image img {
       width: 100%;
-      max-width: 360px;          /* ← cap for all tile images */
+      max-width: 320px;           /* ← reduced from 360px */
       height: auto;
       border-radius: 8px;
       display: block;
-      margin: 0 auto;            /* center smaller images */
+      margin: 0 auto;
     }
 
     .tile-text h2 {
@@ -353,105 +354,107 @@
   </section>
 
   <section class="game-section">
-    <img src="44.png" class="section-banner" alt="Game setup overview">
+    <div class="content-wrapper">
+      <img src="44.png" class="section-banner" alt="Game setup overview">
 
-    <div class="tile">
-      <div class="tile-image">
-        <img src="4a.png" alt="Captain's Log sheet">
+      <div class="tile">
+        <div class="tile-image">
+          <img src="4a.png" alt="Captain's Log sheet">
+        </div>
+        <div class="tile-text">
+          <h2>Game Setup</h2>
+          <p>Print your Captain’s Log and Achievements sheet on A4 paper. Roll shared wind, then roll a random starting port.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Game Setup</h2>
-        <p>Print your Captain’s Log and Achievements sheet on A4 paper. Roll shared wind, then roll a random starting port.</p>
-      </div>
-    </div>
 
-    <div class="tile reverse">
-      <div class="tile-image">
-        <img src="4b.png" alt="Beautiful tropical beach">
+      <div class="tile reverse">
+        <div class="tile-image">
+          <img src="4b.png" alt="Beautiful tropical beach">
+        </div>
+        <div class="tile-text">
+          <h2>Rounds & Seasons</h2>
+          <p>Play 24 short rounds using shared rolls of three dice. One die controls movement, while the other two shape loot rewards and decide which factions can be attacked.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Rounds & Seasons</h2>
-        <p>Play 24 short rounds using shared rolls of three dice. One die controls movement, while the other two shape loot rewards and decide which factions can be attacked.</p>
-      </div>
-    </div>
 
-    <div class="tile">
-      <div class="tile-image">
-        <img src="4c.png" alt="Golden compass">
+      <div class="tile">
+        <div class="tile-image">
+          <img src="4c.png" alt="Golden compass">
+        </div>
+        <div class="tile-text">
+          <h2>Sailing</h2>
+          <p>Go wherever your movement rolls allow. Sail upwind into uncharted waters or ride the wind to cover greater distance.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Sailing</h2>
-        <p>Go wherever your movement rolls allow. Sail upwind into uncharted waters or ride the wind to cover greater distance.</p>
-      </div>
-    </div>
 
-    <div class="tile reverse">
-      <div class="tile-image">
-        <img src="4d.png" alt="Filled out Captain's Log sheet with magnifying glass">
+      <div class="tile reverse">
+        <div class="tile-image">
+          <img src="4d.png" alt="Filled out Captain's Log sheet with magnifying glass">
+        </div>
+        <div class="tile-text">
+          <h2>Actions</h2>
+          <p>Trade. Attack. Explore. Trigger individual events. Take risks or play it safe - your choices shape your rewards.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Actions</h2>
-        <p>Trade. Attack. Explore. Trigger individual events. Take risks or play it safe - your choices shape your rewards.</p>
-      </div>
-    </div>
 
-    <div class="tile">
-      <div class="tile-image">
-        <img src="4e.png" alt="Flintlock pistol">
+      <div class="tile">
+        <div class="tile-image">
+          <img src="4e.png" alt="Flintlock pistol">
+        </div>
+        <div class="tile-text">
+          <h2>Combat & Duels</h2>
+          <p>Attack ships and Settlements with cannons, or charge to force duels. Innovative yet simple combat systems put your fate in your hands.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Combat & Duels</h2>
-        <p>Attack ships and Settlements with cannons, or charge to force duels. Innovative yet simple combat systems put your fate in your hands.</p>
-      </div>
-    </div>
 
-    <div class="tile reverse">
-      <div class="tile-image">
-        <img src="4f.png" alt="Two game cards">
+      <div class="tile reverse">
+        <div class="tile-image">
+          <img src="4f.png" alt="Two game cards">
+        </div>
+        <div class="tile-text">
+          <h2>Global Events</h2>
+          <p>Every three rounds, the Season ends with a shared adventure that grows more dramatic. Disasters, opportunities, and story twists reshape the Caribbean.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Global Events</h2>
-        <p>Every three rounds, the Season ends with a shared adventure that grows more dramatic. Disasters, opportunities, and story twists reshape the Caribbean.</p>
-      </div>
-    </div>
 
-    <div class="tile">
-      <div class="tile-image">
-        <img src="4g.png" alt="Aztec medallion">
+      <div class="tile">
+        <div class="tile-image">
+          <img src="4g.png" alt="Aztec medallion">
+        </div>
+        <div class="tile-text">
+          <h2>Progression</h2>
+          <p>Upgrade your ship, hire crew, collect relics, and gain reputation. Progress permanently unlocks new powers and new opportunities.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Progression</h2>
-        <p>Upgrade your ship, hire crew, collect relics, and gain reputation. Progress permanently unlocks new powers and new opportunities.</p>
-      </div>
-    </div>
 
-    <div class="tile reverse">
-      <div class="tile-image">
-        <img src="4h.png" alt="Magnifying glass on the Achievements sheet">
+      <div class="tile reverse">
+        <div class="tile-image">
+          <img src="4h.png" alt="Magnifying glass on the Achievements sheet">
+        </div>
+        <div class="tile-text">
+          <h2>Scoring</h2>
+          <p>Score points by attacking various targets, purchasing items, uncovering treasures, and completing missions. Completing sets earns bonus points.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Scoring</h2>
-        <p>Score points by attacking various targets, purchasing items, uncovering treasures, and completing missions. Completing sets earns bonus points.</p>
-      </div>
-    </div>
 
-    <div class="tile">
-      <div class="tile-image">
-        <img src="4i.png" alt="Pirate sleeping in hammock">
+      <div class="tile">
+        <div class="tile-image">
+          <img src="4i.png" alt="Pirate sleeping in hammock">
+        </div>
+        <div class="tile-text">
+          <h2>Victory</h2>
+          <p>Each game ends in three acts: a massive treasure haul, a daring escape from pirate hunters, and a unifying stand against one of six regional calamities.</p>
+        </div>
       </div>
-      <div class="tile-text">
-        <h2>Victory</h2>
-        <p>Each game ends in three acts: a massive treasure haul, a daring escape from pirate hunters, and a unifying stand against one of six regional calamities.</p>
-      </div>
-    </div>
 
-    <div class="tile reverse">
-      <div class="tile-image">
-        <img src="4j.png" alt="A majestic galleons sailing on a beautiful sea">
-      </div>
-      <div class="tile-text">
-        <h2>Rounds & Seasons</h2>
-        <p>Shared dice, treasures, and ports link every game into a living world. Play epic solo or multiplayer adventures and cement your legacy as a Buccaneer Hero.</p>
+      <div class="tile reverse">
+        <div class="tile-image">
+          <img src="4j.png" alt="A majestic galleons sailing on a beautiful sea">
+        </div>
+        <div class="tile-text">
+          <h2>Rounds & Seasons</h2>
+          <p>Shared dice, treasures, and ports link every game into a living world. Play epic solo or multiplayer adventures and cement your legacy as a Buccaneer Hero.</p>
+        </div>
       </div>
     </div>
   </section>
