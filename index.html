@@ -183,21 +183,21 @@
       font-weight: 100;
     }
 
-    /* ── Game Section (updated: full-width bg, centered content) ── */
+    /* ── Game Section ── */
     .game-section {
       padding: 5rem 5%;
       background-color: rgba(10, 31, 46, 0.94);
-      width: 100%;                /* full viewport width for background */
+      width: 100%;
     }
 
     .game-section > .content-wrapper {
-      max-width: 1000px;
+      max-width: 1000px;          /* ← your preferred width */
       margin: 0 auto;
     }
 
     .section-banner {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1000px;
       border-radius: 8px;
       margin-bottom: 4rem;
       display: block;
@@ -225,7 +225,7 @@
 
     .tile-image img {
       width: 100%;
-      max-width: 320px;           /* ← reduced from 360px */
+      max-width: 280px;           /* ← reduced further for Sailing, Progression etc. */
       height: auto;
       border-radius: 8px;
       display: block;
@@ -241,10 +241,10 @@
     }
 
     .tile-text p {
-      text-align: justify;
-      line-height: 1.7;
-      font-size: 1.05rem;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);   /* ← matched to hero subtitle */
+      line-height: 1.6;                        /* ← matched */
       opacity: 0.9;
+      text-align: justify;
     }
 
     /* Mobile adjustments */
