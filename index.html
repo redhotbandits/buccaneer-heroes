@@ -22,6 +22,82 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
+
+.game-section {
+  padding: 5rem 5%;
+  background-color: rgba(10, 31, 46, 0.94);
+}
+
+.section-banner {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 4rem;
+}
+
+.tile {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.tile.reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.tile.reverse .tile-image {
+  order: 2;
+}
+
+.tile.reverse .tile-text {
+  order: 1;
+}
+
+.tile-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.tile-text h2 {
+  font-family: 'IM Fell English SC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #e8c670;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+.tile-text p {
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+
+
+
+@media (max-width: 900px) {
+  .tile {
+    grid-template-columns: 1fr;
+  }
+
+  .tile.reverse .tile-image,
+  .tile.reverse .tile-text {
+    order: unset;
+  }
+
+  .tile-text p {
+    text-align: left;
+  }
+}
+
+
+
+
+
+
+
     * {
       margin: 0;
       padding: 0;
@@ -304,7 +380,43 @@
 </section>
 
 
-  <section class="feature"><img src="4.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes"></section>
+  
+<section class="game-section">
+
+  <img src="44.png" class="section-banner" alt="Game setup overview">
+
+  <div class="tile">
+    <div class="tile-image">
+      <img src="4a.png" alt="Captain's Log sheet">
+    </div>
+
+    <div class="tile-text">
+      <h2>Game Setup</h2>
+      <p>
+        Print your Captain’s Log and Achievements sheet on A4 paper.
+        Roll shared wind, then roll a random starting port.
+      </p>
+    </div>
+  </div>
+
+  <div class="tile reverse">
+    <div class="tile-image">
+      <img src="setup-small.jpg" alt="Captain's Log sheet">
+    </div>
+
+    <div class="tile-text">
+      <h2>Rounds & Seasons</h2>
+      <p>
+        Play 24 short rounds using shared rolls of three dice. One die controls movement, while the other two shape loot rewards and decide which factions can be attacked.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+
+
   <section class="feature"><img src="5.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes"></section>
   <section class="feature"><img src="6.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes"></section>
 
