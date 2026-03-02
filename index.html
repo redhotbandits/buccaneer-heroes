@@ -5,20 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buccaneer Heroes | Pirate Print-and-Play Board Game</title>
   <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
+
   <meta property="og:title" content="Buccaneer Heroes">
   <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
   <meta property="og:image" content="https://buccaneer-heroes.com/hero-preview.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://buccaneer-heroes.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Buccaneer Heroes">
-  <meta name="twitter:description" content="Strategic pirate print-and-play board game of plunder, naval combat, and mystical adventure. Coming soon.">
-  <meta name="twitter:image" content="https://buccaneer-heroes.com/hero-preview.jpg">
-  <link rel="canonical" href="https://buccaneer-heroes.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Buccaneer Heroes">
+<meta name="twitter:description" content="Strategic pirate print-and-play board game of plunder, naval combat, and mystical adventure. Coming soon.">
+<meta name="twitter:image" content="https://buccaneer-heroes.com/hero-preview.jpg">
+<link rel="canonical" href="https://buccaneer-heroes.com">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
   <style>
+
+.game-section {
+  padding: 5rem 5%;
+  background-color: rgba(10, 31, 46, 0.94);
+}
+
+.section-banner {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 4rem;
+}
+
+.tile {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.tile.reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.tile.reverse .tile-image {
+  order: 2;
+}
+
+.tile.reverse .tile-text {
+  order: 1;
+}
+
+.tile-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.tile-text h2 {
+  font-family: 'IM Fell English SC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #e8c670;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+.tile-text p {
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+
+
+
+@media (max-width: 900px) {
+  .tile {
+    grid-template-columns: 1fr;
+  }
+
+  .tile.reverse .tile-image,
+  .tile.reverse .tile-text {
+    order: unset;
+  }
+
+  .tile-text p {
+    text-align: left;
+  }
+}
+
+
+
+
+
+
+
     * {
       margin: 0;
       padding: 0;
@@ -31,24 +110,28 @@
       background-color: #0a1f2e;
       min-height: 100vh;
       overflow-x: hidden;
+
       background-image:
         url('left-background.png'),
         url('right-background.png');
+
       background-position:
         left top,
         right top;
+
       background-repeat:
         repeat-y,
         repeat-y;
+
       background-size:
         auto,
         auto;
+
       background-attachment:
         fixed,
         fixed;
     }
 
-    /* ── Hero & general sections ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -91,27 +174,6 @@
       opacity: 0.85;
     }
 
-    .hero-quote {
-      color: #e8c670;
-      font-style: italic;
-      margin-top: -2.5rem;
-      margin-bottom: 3rem;
-      opacity: 0;
-      animation: fadeRise 2.2s ease-out forwards;
-      animation-delay: 0.8s;
-    }
-
-    @keyframes fadeRise {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 0.95;
-        transform: translateY(0);
-      }
-    }
-
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -142,7 +204,7 @@
       transform: translateY(-4px);
     }
 
-    /* ── Feature sections ── */
+    /* Sections (stronger presence) */
     .feature {
       background-color: rgba(10, 31, 46, 0.94);
       padding: 4rem 5% 6rem;
@@ -174,110 +236,17 @@
     }
 
     .highlight {
-      color: #e8c670;
-      font-weight: 700;
+      color: #e8c670;                    /* golden for the special phrases */
+      font-weight: 700;                  /* optional: makes them stand out more */
     }
+
 
     .highlight2 {
-      color: #e8c670;
-      font-weight: 100;
+      color: #e8c670;                    /* golden for the special phrases */
+      font-weight: 100;                     /* optional: makes them stand out more */
     }
 
-    /* ── Game Section ── */
-    .game-section {
-      padding: 3rem 3%;
-      background-color: rgba(10, 31, 46, 0.94);
-      width: 100%;
-    }
-
-    .game-section > .content-wrapper {
-      max-width: 1000px;          /* ← your preferred width */
-      margin: 0 auto;
-    }
-
-    .section-banner {
-      width: 100%;
-      max-width: 1000px;
-      border-radius: 8px;
-      margin-bottom: 4rem;
-      display: block;
-    }
-
-    .tile {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 3rem;
-      align-items: center;
-      margin-bottom: 5rem;
-    }
-
-    .tile.reverse {
-      grid-template-columns: 1.2fr 1fr;
-    }
-
-    .tile.reverse .tile-image {
-      order: 2;
-    }
-
-    .tile.reverse .tile-text {
-      order: 1;
-    }
-
-    .tile-image img {
-      width: 100%;
-      max-width: 360px;           
-      height: auto;
-      border-radius: 2px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .tile-text h2 {
-      font-family: 'IM Fell English SC', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      color: #e8c670;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.05em;
-    }
-
-    .tile-text p {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);   /* ← matched to hero subtitle */
-      line-height: 1.6;                        /* ← matched */
-      opacity: 0.9;
-      text-align: justify;
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 900px) {
-      .tile {
-        grid-template-columns: 1fr;
-      }
-      .tile.reverse .tile-image,
-      .tile.reverse .tile-text {
-        order: unset;
-      }
-      .tile-text p {
-        text-align: left;
-      }
-      .game-section {
-        padding: 3rem 5%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      body {
-        background-attachment: scroll, scroll;
-      }
-      .hero {
-        background-attachment: scroll;
-      }
-      .buttons {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-
-    /* Footer */
+    /* Footer (same feel as hero top) */
     footer {
       background-color: rgba(10, 31, 46, 0.65);
       padding: 3rem 5% 2rem;
@@ -293,31 +262,89 @@
       margin: 1.5rem auto;
       object-fit: contain;
     }
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Game",
-    "name": "Buccaneer Heroes",
-    "description": "A pirate print-and-play board game of solo or multiplayer plunder, naval combat, buried treasure, and mystical adventure set in the Caribbean.",
-    "genre": "Board Game",
-    "gamePlatform": "Tabletop",
-    "applicationCategory": "Game",
-    "creator": {
-      "@type": "Organization",
-      "name": "Red Hot Bandits"
-    },
-    "url": "https://buccaneer-heroes.com"
+
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll, scroll;
+      }
+
+      .hero {
+        background-attachment: scroll;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+.hero-quote {
+   color: #f4e8d1;
+  font-style: italic;
+  margin-top: -2.5rem;   /* pulls it closer to paragraph above */
+  margin-bottom: 3rem;
+  opacity: 0.95;
+}
+
+
+.hero-quote {
+  color: #e8c670;
+  font-style: italic;
+  margin-top: -2.5rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+
+  animation: fadeRise 2.2s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
-  </script>
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Game",
+  "name": "Buccaneer Heroes",
+  "description": "A pirate print-and-play board game of solo or multiplayer plunder, naval combat, buried treasure, and mystical adventure set in the Caribbean.",
+  "genre": "Board Game",
+  "gamePlatform": "Tabletop",
+  "applicationCategory": "Game",
+  "creator": {
+    "@type": "Organization",
+    "name": "Red Hot Bandits"
+  },
+  "url": "https://buccaneer-heroes.com"
+}
+</script>
 </head>
 <body>
+
   <section class="hero">
-    <div class="hero-content">
+    <div class=hero-content">
       <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
-      <h1 class="tagline"><strong>Buccaneer Heroes</strong><br>A Pirate Print-and-Play Board&nbsp;Game</h1>
-      <p class="subtitle">Forge your legend in this strategic sandbox pirate table-top RPG set in the Caribbean during the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure... <strong>Coming Soon</strong>.</p>
-      <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
+     <h1 class="tagline"><strong>Buccaneer Heroes</strong></br>A Pirate Print-and-Play Board&nbsp;Game</h1>
+<p class="subtitle">Forge your legend in this strategic sandbox pirate table-top RPG set in the Caribbean during the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure... <strong>Coming Soon</strong>.
+</p>
+<p class="subtitle hero-quote">
+  “Rise, Buccaneer. Rise a hero. Rise for freedom…</br>and the world’s end.”
+</p>
+
+<p class="subtitle">
+
+      </p>
       <div class="buttons">
         <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
           Visit us on itch.io
@@ -334,15 +361,14 @@
   </section>
 
   <section class="feature">
-    <img src="2.png" class="feature-img" alt="Roll and write Pirate-themed action adventure RPG board game for 1 to 6 players and solo play">
+    <img src="2.png" class="feature-img" alt=Roll and write Pirate-themed action adventure RPG board game for 1 to 6 players and solo play">
     <p class="feature-text">
      Buccaneer Heroes is a fast, highly replayable print-and-play sandbox adventure with streamlined mechanics for solo and multiplayer. Pool dice to cooperate or compete as you sail the open seas on your own sheet, sharing a living world where actions and story events affect everyone.
     </p>
   </section>
 
-  <section class="feature">
-    <img src="3.png" class="feature-img" alt="Buccaneer Heroes is a narrative driven adventure board with cards">
-    <p class="feature-text">
+  <section class="feature"><img src="3.png" class="feature-img" alt=" Buccaneer Heroes is a narrative driven adventure board with cards">
+ <p class="feature-text">
       <span class="highlight">ONLY 2 PAGES TO PRINT</span><br>
       Everything else is paperless<br><br>
       97 Event Cards - digital or print-ready<br>
@@ -351,125 +377,178 @@
       2 Cheat Sheets • 4 Expansions • 3 Difficulty Modes<br><br>
       <span class="highlight">ALL AVAILABLE ON RELEASE</span>
     </p>
-  </section>
+</section>
 
-  <section class="game-section">
-    <div class="content-wrapper">
-      <img src="44.png" class="section-banner" alt="Game setup overview">
 
-      <div class="tile">
-        <div class="tile-image">
-          <img src="4a.png" alt="Captain's Log sheet">
-        </div>
-        <div class="tile-text">
-          <h2>Game Setup</h2>
-          <p>Print your Captain’s Log and Achievements sheet on A4 paper. Roll shared wind, then roll a random starting port.</p>
-        </div>
-      </div>
+  
+<section class="game-section">
 
-      <div class="tile reverse">
-        <div class="tile-image">
-          <img src="4b.png" alt="Beautiful tropical beach">
-        </div>
-        <div class="tile-text">
-          <h2>Rounds & Seasons</h2>
-          <p>Play 24 short rounds using shared rolls of three dice. One die controls movement, while the other two shape loot rewards and decide which factions can be attacked.</p>
-        </div>
-      </div>
+  <img src="44.png" class="section-banner" alt="Game setup overview">
 
-      <div class="tile">
-        <div class="tile-image">
-          <img src="4c.png" alt="Golden compass">
-        </div>
-        <div class="tile-text">
-          <h2>Sailing</h2>
-          <p>Go wherever your movement rolls allow. Sail upwind into uncharted waters or ride the wind to cover greater distance.</p>
-        </div>
-      </div>
-
-      <div class="tile reverse">
-        <div class="tile-image">
-          <img src="4d.png" alt="Filled out Captain's Log sheet with magnifying glass">
-        </div>
-        <div class="tile-text">
-          <h2>Actions</h2>
-          <p>Trade. Attack. Explore. Trigger individual events. Take risks or play it safe - your choices shape your rewards.</p>
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="tile-image">
-          <img src="4e.png" alt="Flintlock pistol">
-        </div>
-        <div class="tile-text">
-          <h2>Combat & Duels</h2>
-          <p>Attack ships and Settlements with cannons, or charge to force duels. Innovative yet simple combat systems put your fate in your hands.</p>
-        </div>
-      </div>
-
-      <div class="tile reverse">
-        <div class="tile-image">
-          <img src="4f.png" alt="Two game cards">
-        </div>
-        <div class="tile-text">
-          <h2>Global Events</h2>
-          <p>Every three rounds, the Season ends with a shared adventure that grows more dramatic. Disasters, opportunities, and story twists reshape the Caribbean.</p>
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="tile-image">
-          <img src="4g.png" alt="Aztec medallion">
-        </div>
-        <div class="tile-text">
-          <h2>Progression</h2>
-          <p>Upgrade your ship, hire crew, collect relics, and gain reputation. Progress permanently unlocks new powers and new opportunities.</p>
-        </div>
-      </div>
-
-      <div class="tile reverse">
-        <div class="tile-image">
-          <img src="4h.png" alt="Magnifying glass on the Achievements sheet">
-        </div>
-        <div class="tile-text">
-          <h2>Scoring</h2>
-          <p>Score points by attacking various targets, purchasing items, uncovering treasures, and completing missions. Completing sets earns bonus points.</p>
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="tile-image">
-          <img src="4i.png" alt="Pirate sleeping in hammock">
-        </div>
-        <div class="tile-text">
-          <h2>Victory</h2>
-          <p>Each game ends in three acts: a massive treasure haul, a daring escape from pirate hunters, and a unifying stand against one of six regional calamities.</p>
-        </div>
-      </div>
-
-      <div class="tile reverse">
-        <div class="tile-image">
-          <img src="4j.png" alt="A majestic galleons sailing on a beautiful sea">
-        </div>
-        <div class="tile-text">
-          <h2>Rounds & Seasons</h2>
-          <p>Shared dice, treasures, and ports link every game into a living world. Play epic solo or multiplayer adventures and cement your legacy as a Buccaneer Hero.</p>
-        </div>
-      </div>
+  <div class="tile">
+    <div class="tile-image">
+      <img src="4a.png" alt="Captain's Log sheet">
     </div>
-  </section>
 
-  <section class="feature">
-    <img src="5.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes">
-  </section>
+    <div class="tile-text">
+      <h2>Game Setup</h2>
+      <p>
+        Print your Captain’s Log and Achievements sheet on A4 paper.
+        Roll shared wind, then roll a random starting port.
+      </p>
+    </div>
+  </div>
 
-  <section class="feature">
-    <img src="6.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes">
-  </section>
+  <div class="tile reverse">
+    <div class="tile-image">
+      <img src="4b.png" alt="Beutiful tropical beach">
+    </div>
+
+    <div class="tile-text">
+      <h2>Rounds & Seasons</h2>
+      <p>
+        Play 24 short rounds using shared rolls of three dice. One die controls movement, while the other two shape loot rewards and decide which factions can be attacked.
+      </p>
+    </div>
+  </div>
+
+
+ <div class="tile">
+    <div class="tile-image">
+      <img src="4c.png" alt="Golden compass">
+    </div>
+
+    <div class="tile-text">
+      <h2>Sailing</h2>
+      <p>
+        Go wherever your movement rolls allow. Sail upwind into uncharted waters or ride the wind to cover greater distance.
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="tile reverse">
+    <div class="tile-image">
+      <img src="4d.png" alt="Filled out Captain's Log sheet with magnifying glass">
+    </div>
+
+    <div class="tile-text">
+      <h2Actions</h2>
+      <p>
+        Trade. Attack. Explore. Trigger individual events. Take risks or play it safe - your choices shape your rewards.
+      </p>
+    </div>
+  </div>
+
+
+<div class="tile">
+    <div class="tile-image">
+      <img src="4e.png" alt="Flintlock pistol">
+    </div>
+
+    <div class="tile-text">
+      <h2Combat & Duels</h2>
+      <p>
+       Attack ships and Settlements with cannons, or charge to force duels. Innovative yet simple combat systems put your fate in your hands. 
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="tile reverse">
+    <div class="tile-image">
+      <img src="4f.png" alt="Two game cards">
+    </div>
+
+    <div class="tile-text">
+      <h2>Global Events</h2>
+      <p>
+       Every three rounds, the Season ends with a shared adventure that grows more dramatic. Disasters, opportunities, and story twists reshape the Caribbean.
+
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+<div class="tile">
+    <div class="tile-image">
+      <img src="4g.png" alt="Aztec medallion">
+    </div>
+
+    <div class="tile-text">
+      <h2>Progression</h2>
+      <p>
+      Upgrade your ship, hire crew, collect relics, and gain reputation. Progress permanently unlocks new powers and new opportunities.
+
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="tile reverse">
+    <div class="tile-image">
+      <img src="4h.png" alt="Magnifying glass on the Achievements sheet">
+    </div>
+
+    <div class="tile-text">
+      <h2>Scoring</h2>
+      <p>
+        Score points by attacking various targets, purchasing items, uncovering treasures, and completing missions. Completing sets earns bonus points.
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+<div class="tile">
+    <div class="tile-image">
+      <img src="4i.png" alt="Pirate sleeping in hammock">
+    </div>
+
+    <div class="tile-text">
+      <h2>Victory</h2>
+      <p>
+        Each game ends in three acts: a massive treasure haul, a daring escape from pirate hunters, and a unifying stand against one of six regional calamities. 
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="tile reverse">
+    <div class="tile-image">
+      <img src="4j.png" alt="A majestic galleons sailing on a beautiful sea">
+    </div>
+
+    <div class="tile-text">
+      <h2>Rounds & Seasons</h2>
+      <p>
+        Shared dice, treasures, and ports link every game into a living world. Play epic solo or multiplayer adventures and cement your legacy as a Buccaneer Hero.
+      </p>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+
+  <section class="feature"><img src="5.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes"></section>
+  <section class="feature"><img src="6.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes"></section>
 
   <footer>
     © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
     <img src="company-logo.png" class="footer-logo">
   </footer>
+
 </body>
 </html>
