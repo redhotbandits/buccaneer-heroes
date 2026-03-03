@@ -1,208 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buccaneer Heroes | Pirate Print-and-Play Board Game</title>
-<meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buccaneer Heroes | Pirate Print-and-Play Board Game</title>
+  <meta name="description" content="Buccaneer Heroes – A strategic pirate board game full of adventure, betrayal, and high-seas plunder. Coming soon.">
+  <meta property="og:title" content="Buccaneer Heroes">
+  <meta property="og:description" content="Strategic pirate board game – crew up, plunder, and outwit your rivals. Coming soon.">
+  <meta property="og:image" content="https://buccaneer-heroes.com/hero-preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buccaneer-heroes.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Buccaneer Heroes">
+  <meta name="twitter:description" content="Strategic pirate print-and-play board game of plunder, naval combat, and mystical adventure. Coming soon.">
+  <meta name="twitter:image" content="https://buccaneer-heroes.com/hero-preview.jpg">
+  <link rel="canonical" href="https://buccaneer-heroes.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body{
-  font-family:'Roboto',sans-serif;
-  color:#f4e8d1;
-  background-color:#0a1f2e;
-  min-height:100vh;
-  overflow-x:hidden;
-  background-image:url('left-background.png'),url('right-background.png');
-  background-position:left top,right top;
-  background-repeat:repeat-y,repeat-y;
-  background-size:auto,auto;
-  background-attachment:fixed,fixed;
-}
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #f4e8d1;
+      background-color: #0a1f2e;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        url('left-background.png'),
+        url('right-background.png');
+      background-position:
+        left top,
+        right top;
+      background-repeat:
+        repeat-y,
+        repeat-y;
+      background-size:
+        auto,
+        auto;
+      background-attachment:
+        fixed,
+        fixed;
+    }
 
-/* HERO */
-.hero{
-  position:relative;
-  min-height:100vh;
-  background:
-    linear-gradient(rgba(10,31,46,0.55),rgba(10,31,46,0.75)),
-    url('hero-bg.jpg') center center/cover no-repeat fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:5vh 5% 20vh;
-}
+    /* ── Hero & general sections ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(10,31,46,0.55), rgba(10,31,46,0.75)),
+        url('hero-bg.jpg') center center / cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5vh 5% 20vh;
+    }
 
-.hero-content{ max-width:1000px; }
+    .hero-content {
+      max-width: 1000px;
+    }
 
-.logo{
-  max-width:400px;
-  width:70%;
-  margin-top:2rem;
-  margin-bottom:2.5rem;
-}
+    .logo {
+      max-width: 400px;
+      width: 70%;
+      height: auto;
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
 
-.tagline{
-  font-family:'IM Fell English SC',serif;
-  font-size:clamp(1.6rem,5vw,3.2rem);
-  margin:0.4em 0 1em;
-  letter-spacing:0.05em;
-}
+    .tagline {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(1.6rem, 5vw, 3.2rem);
+      font-weight: 400;
+      margin: 0.4em 0 1em;
+      opacity: 0.95;
+      letter-spacing: 0.05em;
+    }
 
-.subtitle{
-  font-size:clamp(1.1rem,3vw,1.4rem);
-  line-height:1.6;
-  max-width:720px;
-  margin:1.2rem auto 5rem auto;
-  opacity:0.85;
-}
+    .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 1.2rem auto 5rem auto;
+      opacity: 0.85;
+    }
 
-.buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1.5rem;
-  justify-content:center;
-}
+    .hero-quote {
+      color: #e8c670;
+      font-style: italic;
+      margin-top: -2.5rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeRise 2.2s ease-out forwards;
+      animation-delay: 0.8s;
+    }
 
-.btn{
-  padding:1.2rem 2.5rem;
-  font-size:1.5rem;
-  font-weight:700;
-  text-decoration:none;
-  border-radius:50px;
-  background:#b8860b;
-  color:#fff;
-  border:2px solid #d4a017;
-  transition:all 0.3s ease;
-}
+    @keyframes fadeRise {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 0.95;
+        transform: translateY(0);
+      }
+    }
 
-.btn:hover{
-  background:#d4a017;
-  transform:translateY(-4px);
-}
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
 
-/* FEATURES */
-.feature{
-  background-color:rgba(10,31,46,0.94);
-  padding:4rem 5% 6rem;
-  text-align:center;
-}
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+    }
 
-.feature:nth-child(even){
-  background-color:rgba(13,37,55,0.94);
-}
+    .btn-primary {
+      background: #b8860b;
+      color: #ffffff;
+      border: 2px solid #d4a017;
+    }
 
-.feature-img{
-  max-width:1024px;
-  width:100%;
-  border-radius:8px;
-  margin:0 auto 2.5rem;
-  display:block;
-}
+    .btn-primary:hover {
+      background: #d4a017;
+      transform: translateY(-4px);
+    }
 
-/* GAME SECTION */
-.game-section{
-  padding:3rem 3%;
-  background-color:rgba(10,31,46,0.94);
-}
+    /* ── Feature sections ── */
+    .feature {
+      background-color: rgba(10, 31, 46, 0.94);
+      padding: 4rem 5% 6rem;
+      text-align: center;
+    }
 
-.game-section>.content-wrapper{
-  max-width:1000px;
-  margin:0 auto;
-}
+    .feature:nth-child(even) {
+      background-color: rgba(13, 37, 55, 0.94);
+    }
 
-.section-banner{
-  width:100%;
-  max-width:1000px;
-  border-radius:8px;
-  margin-bottom:4rem;
-}
+    .feature-img {
+      max-width: 1024px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto 2.5rem;
+      display: block;
+    }
 
-.tile{
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:3rem;
-  align-items:center;
-  margin-bottom:5rem;
-}
+    .feature-text {
 
-.tile.reverse{
-  grid-template-columns:1.2fr 1fr;
-}
 
-.tile.reverse .tile-image{ order:2; }
-.tile.reverse .tile-text{ order:1; }
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 1.2rem auto 5rem auto;
+      opacity: 0.85;
+    }
 
-.tile-image img{
-  width:100%;
-  max-width:360px;
-  margin:0 auto;
-  display:block;
-}
+    .highlight {
 
-.tile-text h2{
-  font-family:'IM Fell English SC',serif;
-  font-size:clamp(1.6rem,4vw,2.4rem);
-  color:#e8c670;
-  margin-bottom:1.2rem;
-}
+ font-family: 'IM Fell English SC', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #e8c670;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
 
-.tile-text p{
-  font-size:clamp(1.1rem,3vw,1.4rem);
-  line-height:1.6;
-  text-align:justify;
-}
 
-/* 🔥 MOBILE FIX */
-@media (max-width:900px){
+    }
+
+    .highlight2 {
+      color: #e8c670;
+      font-weight: 200;
+    }
+
+    /* ── Game Section ── */
+    .game-section {
+      padding: 3rem 3%;
+      background-color: rgba(10, 31, 46, 0.94);
+      width: 100%;
+    }
+
+    .game-section > .content-wrapper {
+      max-width: 1000px;          /* ← your preferred width */
+      margin: 0 auto;
+    }
+
+    .section-banner {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 8px;
+      margin-bottom: 4rem;
+      display: block;
+    }
+
+    .tile {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+
+    .tile.reverse {
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .tile.reverse .tile-image {
+      order: 2;
+    }
+
+    .tile.reverse .tile-text {
+      order: 1;
+    }
+
+    .tile-image img {
+      width: 100%;
+      max-width: 360px;           
+      height: auto;
+      border-radius: 2px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .tile-text h2 {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #e8c670;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tile-text p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);   /* ← matched to hero subtitle */
+      line-height: 1.6;                        /* ← matched */
+      opacity: 0.9;
+      text-align: justify;
+    }
+
+    /* Mobile adjustments */
+   @media (max-width: 900px) {
 
   .tile,
-  .tile.reverse{
-    grid-template-columns:1fr !important;
-    gap:1.5rem;
+  .tile.reverse {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem;
   }
 
-  .tile-image,
-  .tile-text{
-    order:unset !important;
+  .tile.reverse .tile-image,
+  .tile.reverse .tile-text {
+    order: unset !important;
   }
 
-  .tile-image{ order:1 !important; }
-  .tile-text{ order:2 !important; }
+  .tile-image {
+    order: 1 !important;
+  }
 
-  .tile-text p{ text-align:left; }
+  .tile-text {
+    order: 2 !important;
+  }
 
-  .game-section{ padding:3rem 5%; }
+  .tile-text p {
+    text-align: left;
+  }
+
+  .game-section {
+    padding: 3rem 5%;
+  }
 }
 
-@media (max-width:768px){
-  body{ background-attachment:scroll,scroll; }
-  .hero{ background-attachment:scroll; }
-  .buttons{ flex-direction:column; gap:1rem; }
-}
 
-/* FOOTER */
-footer{
-  background-color:rgba(10,31,46,0.65);
-  padding:3rem 5% 2rem;
-  text-align:center;
-  border-top:1px solid rgba(232,198,112,0.15);
-}
+    /* Footer */
+    footer {
+      background-color: rgba(10, 31, 46, 0.65);
+      padding: 3rem 5% 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(232,198,112,0.15);
+    }
 
-.footer-logo{
-  width:100px;
-  height:100px;
-  margin:1.5rem auto;
-  display:block;
-}
-</style>
+    .footer-logo {
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 1.5rem auto;
+      object-fit: contain;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Game",
+    "name": "Buccaneer Heroes",
+    "description": "A pirate print-and-play board game of solo or multiplayer plunder, naval combat, buried treasure, and mystical adventure set in the Caribbean.",
+    "genre": "Board Game",
+    "gamePlatform": "Tabletop",
+    "applicationCategory": "Game",
+    "creator": {
+      "@type": "Organization",
+      "name": "Red Hot Bandits"
+    },
+    "url": "https://buccaneer-heroes.com"
+  }
+  </script>
 </head>
 
 
@@ -253,8 +368,8 @@ footer{
     <p class="feature-text">
       <span class="highlight">ONLY TWO PAGES TO PRINT</span><br>
       Everything else is paperless<br><br>
-       2 Game Sheets to print per player in a shared world <br>
       97 Event Cards - digital or print-ready<br>
+      2 Game Sheets per player in shared world<br>
       10 Alternate Sheets • 1 Pyrate Codex • 2 Rulebooks<br>
       2 Cheat Sheets • 4 Expansions • 3 Difficulty Modes<br><br>
       <span class="highlight">ALL AVAILABLE ON RELEASE</span>
