@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buccaneer Heroes | Pirate Print-and-Play Board Game</title>
@@ -309,6 +310,109 @@ footer {
   margin: 1.5rem auto;
   object-fit: contain;
 }
+
+footer {
+  background-color: rgba(10, 31, 46, 0.85);
+  padding: 3rem 5% 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(232, 198, 112, 0.2);
+  color: #d4c9a8;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.copyright strong {
+  color: #e8c670;
+}
+
+.footer-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(232, 198, 112, 0.4));
+}
+
+.footer-links {
+  margin-top: 1rem;
+}
+
+.visit-us {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 1.4rem;
+  color: #e8c670;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.social-list li a {
+  color: #d4c9a8;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  background: rgba(232, 198, 112, 0.08);
+}
+
+.social-list li a:hover {
+  color: #e8c670;
+  background: rgba(232, 198, 112, 0.18);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-list i {
+  font-size: 1.4rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .social-list {
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-list li a {
+    width: 80%;
+    justify-content: center;
+  }
+}
 </style>
   <script type="application/ld+json">
   {
@@ -498,9 +602,43 @@ footer {
     <img src="6.png" class="feature-img" alt="Naval combat and pirate crew management gameplay from Buccaneer Heroes">
   </section>
 
-  <footer>
-    © 2026 Red Hot Bandits – Buccaneer Heroes – Coming Soon
-    <img src="company-logo.png" class="footer-logo">
-  </footer>
+ <footer>
+  <div class="footer-container">
+    <!-- Top row: Copyright + logo -->
+    <div class="footer-top">
+      <p class="copyright">
+        © 2026 Red Hot Bandits – <strong>Buccaneer Heroes</strong> – Coming Soon
+      </p>
+      <img src="company-logo.png" alt="Red Hot Bandits Logo" class="footer-logo">
+    </div>
+
+    <!-- Bottom row: Social & BGG links -->
+    <div class="footer-links">
+      <p class="visit-us">Visit us on:</p>
+      <ul class="social-list">
+        <li>
+          <a href="https://boardgamegeek.com/boardgame/451124/buccaneer-heroes" target="_blank" rel="noopener noreferrer" title="BoardGameGeek Page">
+            <i class="fas fa-dice-d20"></i> BGG
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/people/Buccaneer-Heroes/61588190834903/" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/redhotbandit/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/red_hot_bandit" target="_blank" rel="noopener noreferrer" title="X / Twitter">
+            <i class="fab fa-x-twitter"></i> X
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
