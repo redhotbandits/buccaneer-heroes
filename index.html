@@ -26,6 +26,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #f4e8d1;
@@ -49,7 +53,7 @@ body {
     fixed;
 }
 
-/* ── Hero & general sections ── */
+/* ── Hero ── */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -90,6 +94,7 @@ body {
   max-width: 720px;
   margin: 1.2rem auto 3rem auto;
   opacity: 0.85;
+  letter-spacing: 0.02em;
 }
 
 .hero-quote {
@@ -100,6 +105,7 @@ body {
   opacity: 0;
   animation: fadeRise 2.2s ease-out forwards;
   animation-delay: 0.8s;
+  text-shadow: 0 0 10px rgba(232,198,112,0.25);
 }
 
 @keyframes fadeRise {
@@ -136,14 +142,16 @@ body {
   background: #b8860b;
   color: #ffffff;
   border: 2px solid #d4a017;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
 .btn-primary:hover {
   background: #d4a017;
   transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.45);
 }
 
-/* ── Feature sections ── */
+/* ── Feature Sections ── */
 .feature {
   background-color: rgba(10, 31, 46, 0.94);
   padding: 3rem 5%;
@@ -161,6 +169,13 @@ body {
   border-radius: 8px;
   margin: 0 auto 2rem;
   display: block;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.5);
 }
 
 .feature-text {
@@ -169,6 +184,7 @@ body {
   max-width: 720px;
   margin: 1.2rem auto 0 auto;
   opacity: 0.85;
+  letter-spacing: 0.02em;
 }
 
 .highlight {
@@ -177,6 +193,7 @@ body {
   color: #e8c670;
   margin-bottom: 1.2rem;
   letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(232,198,112,0.25);
 }
 
 .highlight2 {
@@ -202,6 +219,7 @@ body {
   border-radius: 8px;
   margin-bottom: 3rem;
   display: block;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
 .tile {
@@ -210,6 +228,9 @@ body {
   gap: 3rem;
   align-items: center;
   margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .tile.reverse {
@@ -224,6 +245,11 @@ body {
   order: 1;
 }
 
+.tile.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .tile-image img {
   width: 100%;
   max-width: 360px;
@@ -231,6 +257,13 @@ body {
   border-radius: 2px;
   display: block;
   margin: 0 auto;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tile-image img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.5);
 }
 
 .tile-text h2 {
@@ -239,6 +272,7 @@ body {
   color: #e8c670;
   margin-bottom: 1.2rem;
   letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(232,198,112,0.25);
 }
 
 .tile-text p {
@@ -246,9 +280,10 @@ body {
   line-height: 1.6;
   opacity: 0.9;
   text-align: justify;
+  letter-spacing: 0.02em;
 }
 
-/* ── Mobile adjustments ── */
+/* ── Mobile Adjustments ── */
 @media (max-width: 900px) {
   .tile,
   .tile.reverse {
@@ -271,10 +306,6 @@ body {
 
   .tile-text p {
     text-align: left;
-  }
-
-  .game-section {
-    padding: 3rem 5%;
   }
 }
 
