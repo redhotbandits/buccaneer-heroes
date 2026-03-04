@@ -398,14 +398,20 @@ background-color: rgba(10, 31, 46, 0.65);
   text-align: center;
 }
 
-.dual-tile img {
+.dual-image {
+  height: 200px;              /* Same visual space for all images */
+  display: flex;
+  align-items: center;        /* Vertical centering */
+  justify-content: center;    /* Horizontal centering */
+  margin-bottom: 1.5rem;
+}
+
+.dual-image img {
   max-width: 200px;
   max-height: 200px;
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 2px;
-  margin: 0 auto 1.5rem;
   display: block;
 }
 
@@ -638,16 +644,16 @@ background-color: rgba(10, 31, 46, 0.65);
     <div class="dual-columns">
 
       <div class="dual-tile">
-        <img src="5a.png" alt="Expansion content preview">
-        <h2>Total Freedom</h2>
+       <div class="dual-image"> <img src="5a.png" alt="Expansion content preview">
+     </div><h2>Total Freedom</h2>
         <p>
          Sail anywhere on a historically accurate 17th-century Caribbean map.
         </p>
       </div>
 
       <div class="dual-tile">
-        <img src="5b.png" alt="Solo adventure mode preview">
-        <h2>Persistent World</h2>
+       <div class="dual-image"> <img src="5b.png" alt="Solo adventure mode preview">
+     </div><h2>Persistent World</h2>
         <p>
           Play on your own game sheets while shaping a world shared by all players.
         </p>
@@ -655,16 +661,16 @@ background-color: rgba(10, 31, 46, 0.65);
 
 
       <div class="dual-tile">
-        <img src="5c.png" alt="Expansion content preview">
-        <h2>Combat Options</h2>
+       <div class="dual-image"> <img src="5c.png" alt="Expansion content preview">
+     </div><h2>Combat Options</h2>
         <p>
         Attack ships and Settlements from sea, or use Defense to charge and duel.
         </p>
       </div>
 
       <div class="dual-tile">
-        <img src="5d.png" alt="Solo adventure mode preview">
-        <h2>Two Reputations</h2>
+     <div class="dual-image">   <img src="5d.png" alt="Solo adventure mode preview">
+     </div><h2>Two Reputations</h2>
         <p>
           Earn Good or Bad Reputation to use in duels, events and ship efficiency.
         </p>
@@ -672,16 +678,16 @@ background-color: rgba(10, 31, 46, 0.65);
 
 
       <div class="dual-tile">
-        <img src="5e.png" alt="Expansion content preview">
-        <h2>Settlement Types</h2>
+       <div class="dual-image"> <img src="5e.png" alt="Expansion content preview">
+     </div><h2>Settlement Types</h2>
         <p>
        Three types of Settlements, each with their own defenses and economies.
         </p>
       </div>
 
       <div class="dual-tile">
-        <img src="5f.png" alt="Solo adventure mode preview">
-        <h2>Dynamic Story Events</h2>
+     <div class="dual-image">   <img src="5f.png" alt="Solo adventure mode preview">
+     </div><h2>Dynamic Story Events</h2>
         <p>
       Attack or flee, spare or execute, aid or rob - your choices shape each event.
 
@@ -690,16 +696,16 @@ background-color: rgba(10, 31, 46, 0.65);
 
 
       <div class="dual-tile">
-        <img src="5g.png" alt="Expansion content preview">
-        <h2>Pirate Dens</h2>
+      <div class="dual-image">  <img src="5g.png" alt="Expansion content preview">
+     </div><h2>Pirate Dens</h2>
         <p>
           Visit Pirate Dens to spend Crowns, strike risky deals, and make tough decisions.
         </p>
       </div>
 
       <div class="dual-tile">
-        <img src="5h.png" alt="Solo adventure mode preview">
-        <h2>Myths & Monsters</h2>
+     <div class="dual-image">   <img src="5h.png" alt="Solo adventure mode preview">
+     </div><h2>Myths & Monsters</h2>
         <p>
          Discover lost civilizations, find magical items, battle monsters, and defy gods.
         </p>
