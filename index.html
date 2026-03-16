@@ -238,6 +238,79 @@ body {
   }
 }
 
+
+
+
+
+/* Signup form styling – pirate theme */
+.signup-wrapper {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 1.5rem auto; /* centers it and adds space above itch button */
+}
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#email {
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid #d4a017;
+  border-radius: 50px;
+  background: rgba(244, 232, 209, 0.12); /* subtle parchment feel */
+  color: #f4e8d1;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#email:focus {
+  border-color: #e8c670;
+  box-shadow: 0 0 12px rgba(232, 198, 112, 0.4);
+  background: rgba(244, 232, 209, 0.2);
+}
+
+#email::placeholder {
+  color: #d4c9a8;
+  opacity: 0.7;
+}
+
+#submit-btn {
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: #b8860b;
+  color: #ffffff;
+  border: 2px solid #d4a017;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+#submit-btn:hover:not(:disabled) {
+  background: #d4a017;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 160, 23, 0.4);
+}
+
+#submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success message already has inline style, but you can move to CSS if preferred */
+
+
+
+
+
+
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -1033,7 +1106,39 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
 
       <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
-      <div class="buttons">
+      <div class="buttons"><div class="signup-wrapper">
+  <form id="signup-form" 
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse" 
+        method="POST" 
+        target="hidden_iframe">
+    
+    <input type="email" 
+           id="email" 
+           name="entry.1679177313" 
+           placeholder="Enter your email to join the crew" 
+           required>
+    
+    <!-- Hidden fields -->
+    <input type="hidden" id="code_field" name="entry.507215426">
+    <input type="hidden" id="ref_field" name="entry.6682609">
+    
+    <button type="submit" id="submit-btn">Join the Crew</button>
+  </form>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <div id="success-message" style="display:none; margin-top: 1.5rem; padding: 1rem; background: rgba(232,198,112,0.15); border: 1px solid #e8c670; border-radius: 12px; text-align: center;">
+    <p style="font-size: 1.3rem; color: #e8c670; margin-bottom: 0.8rem;">
+      🏴‍☠️ You're in the crew!
+    </p>
+    <p id="referral-link" style="font-weight: bold; color: #f4e8d1;"></p>
+  </div>
+</div>
+
+<!-- itch.io button goes here (keep your existing one) -->
+<a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
+  Visit us on itch.io
+</a>
         <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
           Visit us on itch.io
         </a>
@@ -1753,59 +1858,60 @@ if(ref){
 
 
 <script>
-
-const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse";
-
-const EMAIL_FIELD = "entry.1679177313";
-const CODE_FIELD = "entry.507215426";
-const REF_FIELD = "entry.6682609";
-
-
-function generateCode(){
-  return Math.random().toString(36).substring(2,8).toUpperCase();
+// Generate referral code
+function generateCode() {
+  return Math.random().toString(36).substring(2, 8).toUpperCase();
 }
-
 
 // Capture referral from URL
 const params = new URLSearchParams(window.location.search);
 const ref = params.get("ref");
-
-if(ref){
+if (ref) {
   localStorage.setItem("referrer", ref);
 }
 
+const signupForm = document.getElementById("signup-form");
+const submitBtn = document.getElementById("submit-btn");
+const emailInput = document.getElementById("email");
+const successDiv = document.getElementById("success-message");
+const referralP = document.getElementById("referral-link");
 
-// Handle signup
-document.getElementById("signup-form").addEventListener("submit", function(e){
+let isSubmitting = false;
 
+signupForm.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
+  if (isSubmitting) return; // extra safety
+
+  const email = emailInput.value.trim();
+  if (!email) return;
+
+  isSubmitting = true;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Joining...";
+
   const code = generateCode();
   const referredBy = localStorage.getItem("referrer") || "";
 
-  const formData = new URLSearchParams();
+  document.getElementById("code_field").value = code;
+  document.getElementById("ref_field").value = referredBy;
 
-formData.append(EMAIL_FIELD, email);
-formData.append(CODE_FIELD, code);
-formData.append(REF_FIELD, referredBy);
+  // Submit via iframe
+  this.submit();
 
-fetch(FORM_URL,{
-  method:"POST",
-  mode:"no-cors",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
-  },
-  body: formData.toString()
+  // Show success (assume success since iframe method is reliable)
+  setTimeout(() => {
+    successDiv.style.display = "block";
+    referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
+
+    // Hide form after success
+    signupForm.style.display = "none";
+
+    // Reset button (in case someone refreshes page)
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Joined ✓";
+  }, 800); // small delay for realism
 });
-  const referralLink = "https://buccaneer-heroes.com/?ref=" + code;
-
-  const linkBox = document.getElementById("referral-link");
-  linkBox.style.display = "block";
-  linkBox.innerHTML = "Your referral link:<br><b>" + referralLink + "</b>";
-
-});
-
 </script>
 
 
