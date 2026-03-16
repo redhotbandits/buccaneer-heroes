@@ -1131,16 +1131,6 @@ type="email"
 placeholder="Enter your email"
 required>
 
-<input
-id="code_field"
-name="entry.507215426"
-type="hidden">
-
-<input
-id="ref_field"
-name="entry.6682609"
-type="hidden">
-
 <button id="submit-btn" type="submit">Join the Crew</button>
 
 </form>
@@ -1871,8 +1861,8 @@ if (ref) {
 }
 
 const signupForm = document.getElementById("signup-form");
-const submitBtn = document.getElementById("submit-btn");
 const emailInput = document.getElementById("email");
+const submitBtn = document.getElementById("submit-btn");
 const successDiv = document.getElementById("success-message");
 const referralP = document.getElementById("referral-link");
 
@@ -1880,9 +1870,7 @@ let isSubmitting = false;
 
 signupForm.addEventListener("submit", function(e) {
   e.preventDefault();
-
-  if (isSubmitting) return; // extra safety
-
+  if (isSubmitting) return;
   const email = emailInput.value.trim();
   if (!email) return;
 
@@ -1890,31 +1878,46 @@ signupForm.addEventListener("submit", function(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = "Joining...";
 
-  const code = generateCode();
+  const code = generateCode();               // your existing function
   const referredBy = localStorage.getItem("referrer") || "";
 
-  document.getElementById("code_field").value = code;
-  document.getElementById("ref_field").value = referredBy;
+  // Build pre-filled Google Form URL
+  const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse";
+  const params = new URLSearchParams({
+    "entry.1679177313": email,
+    "entry.507215426": code,
+    "entry.6682609": referredBy
+  });
 
-  // Submit via iframe
-  this.submit();
+  // Create a temporary form to submit the pre-filled data
+  const tempForm = document.createElement("form");
+  tempForm.method = "POST";
+  tempForm.action = baseUrl;
+  tempForm.target = "hidden_iframe";  // keep your iframe
+  tempForm.style.display = "none";
 
+  for (const [key, value] of params) {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = value;
+    tempForm.appendChild(input);
+  }
 
+  document.body.appendChild(tempForm);
+  tempForm.submit();
+  document.body.removeChild(tempForm);
 
-
-setTimeout(() => {
-  successDiv.style.display = "block";
-  referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
-
-  signupForm.style.display = "none";
-
-  console.log("Signup success! Code:", code, "Email:", email);
-
-  submitBtn.disabled = false;
-  submitBtn.textContent = "Joined ✓";
-}, 600);
-
-});   
+  // Show success UI (after ~600ms like before)
+  setTimeout(() => {
+    successDiv.style.display = "block";
+    referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
+    signupForm.style.display = "none";
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Joined ✓";
+    isSubmitting = false;
+  }, 800);  // slightly longer delay to ensure submission
+});
 </script>
 
 
