@@ -310,35 +310,10 @@ body {
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;                    /* bigger gap for breathing room */
-  justify-content: flex-start;  /* ← aligns everything to the left */
-  align-items: center;          /* vertical centering */
-  max-width: 900px;             /* prevents it from stretching full width */
-  margin: 2rem auto 0 auto;     /* centers the whole container horizontally */
-}
-
-.signup-wrapper {
-  width: 100%;
-  max-width: 420px;
-  margin: 0;                    /* remove previous auto margin */
-  text-align: left;             /* ensure form content starts left */
-}
-
-/* On smaller screens → stack and center everything */
-@media (max-width: 768px) {
-  .buttons {
-    justify-content: center;    /* center on mobile for better UX */
-    gap: 1.5rem;
-  }
-  
-  .signup-wrapper {
-    max-width: 100%;            /* full width on mobile */
-  }
-}
-
-
-.buttons .btn-primary {
-  margin-left: auto;            /* pushes itch button to the right side */
+  gap: 1.5rem;
+  justify-content: center;          /* default - centers everything */
+  align-items: center;              /* NEW: vertical center */
+  margin-top: 1rem;                 /* breathing room below quote */
 }
 
 .btn {
