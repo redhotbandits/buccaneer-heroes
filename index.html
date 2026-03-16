@@ -1771,18 +1771,20 @@ document.getElementById("signup-form").addEventListener("submit", function(e){
   const code = generateCode();
   const referredBy = localStorage.getItem("referrer") || "";
 
-  const data = new FormData();
+  const formData = new URLSearchParams();
 
-  data.append(EMAIL_FIELD, email);
-  data.append(CODE_FIELD, code);
-  data.append(REF_FIELD, referredBy);
+formData.append(EMAIL_FIELD, email);
+formData.append(CODE_FIELD, code);
+formData.append(REF_FIELD, referredBy);
 
-  fetch(FORM_URL,{
-    method:"POST",
-    mode:"no-cors",
-    body:data
-  });
-
+fetch(FORM_URL,{
+  method:"POST",
+  mode:"no-cors",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: formData.toString()
+});
   const referralLink = "https://buccaneer-heroes.com/?ref=" + code;
 
   const linkBox = document.getElementById("referral-link");
