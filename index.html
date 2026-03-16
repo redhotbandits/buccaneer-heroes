@@ -307,7 +307,58 @@ body {
 
 
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;          /* default - centers everything */
+  align-items: center;              /* NEW: vertical center */
+  margin-top: 1rem;                 /* breathing room below quote */
+}
 
+.btn {
+  display: flex;                    /* changed to flex for perfect centering */
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;                 /* consistent height */
+  padding: 1.2rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  line-height: 1.2;                 /* helps text centering */
+}
+
+.btn-primary {
+  background: #b8860b;
+  color: #ffffff;
+  border: 2px solid #d4a017;
+}
+
+.btn-primary:hover {
+  background: #d4a017;
+  transform: translateY(-4px);
+}
+
+/* Make success message stand out more */
+#success-message {
+  max-width: 500px;
+  margin: 1.5rem auto 0 auto;       /* center it */
+  padding: 1.5rem;
+  background: rgba(232,198,112,0.2);
+  border: 2px solid #e8c670;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(232,198,112,0.25);
+}
+
+/* Ensure form/button look centered when alone */
+.signup-wrapper {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 1.5rem auto;
+}
 
 
 
@@ -1840,19 +1891,25 @@ signupForm.addEventListener("submit", function(e) {
   // Submit via iframe
   this.submit();
 
-  // Show success (assume success since iframe method is reliable)
-  setTimeout(() => {
-    successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
 
-    // Hide form after success
-    signupForm.style.display = "none";
 
-    // Reset button (in case someone refreshes page)
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Joined ✓";
-  }, 800); // small delay for realism
-});
+// Show success (assume success since iframe method is reliable)
+setTimeout(() => {
+  successDiv.style.display = "block";
+  referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
+  
+  // Hide form after success
+  signupForm.style.display = "none";
+  
+  // Optional: change itch button text too for fun
+  // document.querySelector('.btn-primary').textContent = "Crew Joined – Visit itch.io";
+
+  console.log("Signup success! Code:", code, "Email:", email);
+  
+  // Reset button (in case page refresh)
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Joined ✓";
+}, 600);  // slightly faster
 </script>
 
 
