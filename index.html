@@ -1878,45 +1878,28 @@ signupForm.addEventListener("submit", function(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = "Joining...";
 
-  const code = generateCode();               // your existing function
+  const code = generateCode();
   const referredBy = localStorage.getItem("referrer") || "";
 
-  // Build pre-filled Google Form URL
-  const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse";
+  // Use viewform for prefill (Google guarantees this works)
+  const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/viewform";
   const params = new URLSearchParams({
     "entry.1679177313": email,
     "entry.507215426": code,
     "entry.6682609": referredBy
   });
 
-  // Create a temporary form to submit the pre-filled data
-  const tempForm = document.createElement("form");
-  tempForm.method = "POST";
-  tempForm.action = baseUrl;
-  tempForm.target = "hidden_iframe";  // keep your iframe
-  tempForm.style.display = "none";
+  const prefilledUrl = `${baseUrl}?${params.toString()}`;
 
-  for (const [key, value] of params) {
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = key;
-    input.value = value;
-    tempForm.appendChild(input);
-  }
+  // Redirect to pre-filled form (user submits there)
+  window.location.href = prefilledUrl;
 
-  document.body.appendChild(tempForm);
-  tempForm.submit();
-  document.body.removeChild(tempForm);
-
-  // Show success UI (after ~600ms like before)
+  // Optional: quick message before redirect
   setTimeout(() => {
     successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
+    referralP.innerHTML = `Redirecting to confirm your signup...<br>Your referral code: <strong>${code}</strong>`;
     signupForm.style.display = "none";
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Joined ✓";
-    isSubmitting = false;
-  }, 800);  // slightly longer delay to ensure submission
+  }, 300);
 });
 </script>
 
