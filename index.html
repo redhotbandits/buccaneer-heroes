@@ -1849,6 +1849,8 @@ if(ref){
 
 <script>
 // Generate referral code
+<script>
+// Generate referral code
 function generateCode() {
   return Math.random().toString(36).substring(2, 8).toUpperCase();
 }
@@ -1894,26 +1896,21 @@ signupForm.addEventListener("submit", function(e) {
   const prefilledUrl = `${baseUrl}?${params.toString()}`;
 
   // Show success message FIRST (this is what the user sees on your site)
-  // ... inside the submit handler, after generating code & referredBy ...
+  successDiv.style.display = "block";
+  referralP.innerHTML = `
+    🏴‍☠️ You're in the crew!<br><br>
+    Your personal referral link:<br>
+    <strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>
+    Share it far and wide, matey!<br><br>
+    Redirecting to confirm signup in 2 seconds...
+  `;
+  signupForm.style.display = "none";
 
-successDiv.style.display = "block";
-referralP.innerHTML = `
-  Your personal referral link:<br><br>
-  <strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>
-  Share it far and wide, matey!<br><br>
-  <small>Confirming your signup… <span id="countdown">2</span>s</small>
-`;
-
-let seconds = 2;
-const countdownEl = document.getElementById("countdown") || { textContent: "2" };
-const interval = setInterval(() => {
-  seconds--;
-  countdownEl.textContent = seconds;
-  if (seconds <= 0) {
-    clearInterval(interval);
+  // Redirect after giving user time to read (adjust delay if needed)
+  setTimeout(() => {
     window.location.href = prefilledUrl;
-  }
-}, 2000);
+  }, 2000); // 2000 ms = 2 seconds — enough to read, not too long
+});
 </script>
 
 
