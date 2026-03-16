@@ -1120,24 +1120,32 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
     <div class="buttons">
       <div class="signup-wrapper">
         <form id="signup-form"
-              action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
-              method="POST"
-              target="hidden_iframe">
-         
-          <input type="email"
-                 id="email"
-                 name="entry.1679177313"
-                 placeholder="Enter your email to join the crew"
-                 required>
-         
-          <!-- Hidden fields -->
-          <input type="hidden" id="code_field" name="entry.507215426">
-          <input type="hidden" id="ref_field" name="entry.6682609">
-         
-          <button type="submit" id="submit-btn">Join the Crew</button>
-        </form>
+action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
+method="POST"
+target="hidden_iframe">
 
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+<input
+id="email"
+name="entry.1679177313"
+type="email"
+placeholder="Enter your email"
+required>
+
+<input
+id="code_field"
+name="entry.507215426"
+type="hidden">
+
+<input
+id="ref_field"
+name="entry.6682609"
+type="hidden">
+
+<button id="submit-btn" type="submit">Join the Crew</button>
+
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 
         <div id="success-message" style="display:none; margin-top: 1.5rem; padding: 1rem; background: rgba(232,198,112,0.15); border: 1px solid #e8c670; border-radius: 12px; text-align: center;">
           <p style="font-size: 1.3rem; color: #e8c670; margin-bottom: 0.8rem;">
