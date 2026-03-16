@@ -1044,15 +1044,28 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
 
 
-<form id="signup-form">
-
-<input type="email" id="email" placeholder="Enter your email" required>
-
-<button type="submit">
-Join the Crew
-</button>
-
+<form id="signup-form" 
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse" 
+      method="POST" 
+      target="hidden_iframe">
+  
+  <input type="email" 
+         id="email" 
+         name="entry.1679177313" 
+         placeholder="Enter your email" 
+         required>
+  
+  <!-- Hidden fields for your tracking data -->
+  <input type="hidden" id="code_field" name="entry.507215426">
+  <input type="hidden" id="ref_field" name="entry.6682609">
+  
+  <button type="submit">Join the Crew</button>
 </form>
+
+<!-- Hidden iframe that catches the submission (no page reload) -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<p id="referral-link" style="display:none; margin-top:1rem; font-weight:bold;"></p>
 
 <p id="referral-link" style="display:none;"></p>
 
