@@ -1893,23 +1893,20 @@ signupForm.addEventListener("submit", function(e) {
 
 
 
-// Show success (assume success since iframe method is reliable)
+
 setTimeout(() => {
   successDiv.style.display = "block";
   referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
-  
-  // Hide form after success
+
   signupForm.style.display = "none";
-  
-  // Optional: change itch button text too for fun
-  // document.querySelector('.btn-primary').textContent = "Crew Joined – Visit itch.io";
 
   console.log("Signup success! Code:", code, "Email:", email);
-  
-  // Reset button (in case page refresh)
+
   submitBtn.disabled = false;
   submitBtn.textContent = "Joined ✓";
-}, 600);  // slightly faster
+}, 600);
+
+});   
 </script>
 
 
