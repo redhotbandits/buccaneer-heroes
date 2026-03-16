@@ -1027,6 +1027,21 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 </div>
 
 
+<form id="signup-form">
+
+<input type="email" id="email" placeholder="Enter your email" required>
+
+<button type="submit">
+Join the Crew
+</button>
+
+</form>
+
+<p id="referral-link" style="display:none;"></p>
+
+
+
+
       <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
       <div class="buttons">
         <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
@@ -1692,6 +1707,86 @@ nextBtn.addEventListener('click', () => {
 </script>
 
 
+
+
+<script>
+(function() {
+
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+
+  if (ref) {
+    localStorage.setItem("referrer", ref);
+  }
+
+})();
+</script>
+
+
+
+<script>
+const ref = localStorage.getItem("referrer");
+if(ref){
+  console.log("Referral detected:", ref);
+}
+</script>
+
+
+
+
+<script>
+
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse";
+
+const EMAIL_FIELD = "entry.1679177313";
+const CODE_FIELD = "entry.507215426";
+const REF_FIELD = "entry.6682609";
+
+
+function generateCode(){
+  return Math.random().toString(36).substring(2,8).toUpperCase();
+}
+
+
+// Capture referral from URL
+const params = new URLSearchParams(window.location.search);
+const ref = params.get("ref");
+
+if(ref){
+  localStorage.setItem("referrer", ref);
+}
+
+
+// Handle signup
+document.getElementById("signup-form").addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const code = generateCode();
+  const referredBy = localStorage.getItem("referrer") || "";
+
+  const data = new FormData();
+
+  data.append(EMAIL_FIELD, email);
+  data.append(CODE_FIELD, code);
+  data.append(REF_FIELD, referredBy);
+
+  fetch(FORM_URL,{
+    method:"POST",
+    mode:"no-cors",
+    body:data
+  });
+
+  const referralLink = "https://buccaneer-heroes.com/?ref=" + code;
+
+  const linkBox = document.getElementById("referral-link");
+  linkBox.style.display = "block";
+  linkBox.innerHTML = "Your referral link:<br><b>" + referralLink + "</b>";
+
+});
+
+</script>
 
 
 
