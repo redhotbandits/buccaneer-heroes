@@ -238,130 +238,6 @@ body {
   }
 }
 
-
-
-
-
-/* Signup form styling – pirate theme */
-.signup-wrapper {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto 1.5rem auto; /* centers it and adds space above itch button */
-}
-
-#signup-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-#email {
-  padding: 1rem 1.5rem;
-  font-size: 1.1rem;
-  border: 2px solid #d4a017;
-  border-radius: 50px;
-  background: rgba(244, 232, 209, 0.12); /* subtle parchment feel */
-  color: #f4e8d1;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-#email:focus {
-  border-color: #e8c670;
-  box-shadow: 0 0 12px rgba(232, 198, 112, 0.4);
-  background: rgba(244, 232, 209, 0.2);
-}
-
-#email::placeholder {
-  color: #d4c9a8;
-  opacity: 0.7;
-}
-
-#submit-btn {
-  padding: 1rem 2rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  background: #b8860b;
-  color: #ffffff;
-  border: 2px solid #d4a017;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.05em;
-}
-
-#submit-btn:hover:not(:disabled) {
-  background: #d4a017;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(212, 160, 23, 0.4);
-}
-
-#submit-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* Success message already has inline style, but you can move to CSS if preferred */
-
-
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;          /* default - centers everything */
-  align-items: center;              /* NEW: vertical center */
-  margin-top: 1rem;                 /* breathing room below quote */
-}
-
-.btn {
-  display: flex;                    /* changed to flex for perfect centering */
-  align-items: center;
-  justify-content: center;
-  min-height: 60px;                 /* consistent height */
-  padding: 1.2rem 2.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  letter-spacing: 0.05em;
-  line-height: 1.2;                 /* helps text centering */
-}
-
-.btn-primary {
-  background: #b8860b;
-  color: #ffffff;
-  border: 2px solid #d4a017;
-}
-
-.btn-primary:hover {
-  background: #d4a017;
-  transform: translateY(-4px);
-}
-
-/* Make success message stand out more */
-#success-message {
-  max-width: 500px;
-  margin: 1.5rem auto 0 auto;       /* center it */
-  padding: 1.5rem;
-  background: rgba(232,198,112,0.2);
-  border: 2px solid #e8c670;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(232,198,112,0.25);
-}
-
-/* Ensure form/button look centered when alone */
-.signup-wrapper {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto 1.5rem auto;
-}
-
-
-
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -1080,80 +956,75 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
 
 <body>
- <section class="hero">
-  <div class="hero-content">
-    <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
-    <h1 class="tagline"><strong>Buccaneer Heroes</strong><br>A Pirate Print-and-Play Board&nbsp;Game</h1>
-    <p class="subtitle">Forge your legend in this strategic sandbox table-top Action RPG set in the Caribbean during the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure... <strong>Coming Soon</strong>.</p>
+  <section class="hero">
+    <div class="hero-content">
+      <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
+      <h1 class="tagline"><strong>Buccaneer Heroes</strong><br>A Pirate Print-and-Play Board&nbsp;Game</h1>
+      <p class="subtitle">Forge your legend in this strategic sandbox table-top Action RPG set in the Caribbean during the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure... <strong>Coming Soon</strong>.</p>
 
-    <div class="media-carousel">
-      <div class="carousel-track">
-        <!-- Slide 1 - YouTube -->
-        <div class="carousel-slide active">
-          <div class="video-wrapper">
-            <iframe
-              id="yt-player"
-              src="https://www.youtube.com/embed/wF95g78xwrI?enablejsapi=1"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-        <!-- Slides 2–8 Images (you had 8, I kept them all) -->
-        <div class="carousel-slide"><img src="buccaneer-heroes-game-sheets.png" alt="buccaneer heroes game-sheets"></div>
-        <div class="carousel-slide"><img src="buccaneer-heroes-game-sheets-low-ink.png" alt="buccaneer heroes game-sheets low ink"></div>
-        <div class="carousel-slide"><img src="all-buccaneer-heroes-material.png" alt="all buccaneer heroes material"></div>
-        <div class="carousel-slide"><img src="buccaneer-heroes-game-cards.png" alt="buccaneer heroes game cards"></div>
-        <div class="carousel-slide"><img src="buccaneer-heroes-events-file.png" alt="three pages of the buccaneer heroes events file"></div>
-        <div class="carousel-slide"><img src="captains-log-preview.png" alt="A closeup preview of the game's first game sheet the Captain's Log"></div>
-        <div class="carousel-slide"><img src="achievements-sheet-preview.png" alt="A closeup preview of the game's second game sheet the achievements sheet"></div>
-        <div class="carousel-slide"><img src="buccaneer-heroes-cheat-sheets.png" alt="two buccaneer heroes cheat sheets"></div>
-        <div class="carousel-slide"><img src="buccaneer-heroes-life-after-piracy.png" alt="A close view of the Life After Piracy score chart"></div>
+
+<div class="media-carousel">
+
+  <div class="carousel-track">
+
+    <!-- Slide 1 - YouTube -->
+    <div class="carousel-slide active">
+      <div class="video-wrapper">
+        <iframe
+          id="yt-player"
+          src="https://www.youtube.com/embed/wF95g78xwrI?enablejsapi=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
-      <button class="carousel-btn prev">&#10094;</button>
-      <button class="carousel-btn next">&#10095;</button>
     </div>
 
-    <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
-
-    <div class="buttons">
-      <div class="signup-wrapper">
-        <form id="signup-form"
-              action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
-              method="POST"
-              target="hidden_iframe">
-         
-          <input type="email"
-                 id="email"
-                 name="entry.1679177313"
-                 placeholder="Enter your email to join the crew"
-                 required>
-         
-          <!-- Hidden fields -->
-          <input type="hidden" id="code_field" name="entry.507215426">
-          <input type="hidden" id="ref_field" name="entry.6682609">
-         
-          <button type="submit" id="submit-btn">Join the Crew</button>
-        </form>
-
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-        <div id="success-message" style="display:none; margin-top: 1.5rem; padding: 1rem; background: rgba(232,198,112,0.15); border: 1px solid #e8c670; border-radius: 12px; text-align: center;">
-          <p style="font-size: 1.3rem; color: #e8c670; margin-bottom: 0.8rem;">
-            🏴‍☠️ You're in the crew!
-          </p>
-          <p id="referral-link" style="font-weight: bold; color: #f4e8d1;"></p>
-        </div>
-      </div>
-
-      <!-- Only ONE itch.io button -->
-      <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
-        Visit us on itch.io
-      </a>
+    <!-- Slides 2–6 Images -->
+    <div class="carousel-slide">
+      <img src="buccaneer-heroes-game-sheets.png" alt="buccaneer heroes game-sheets">
     </div>
+
+   <div class="carousel-slide">
+      <img src="buccaneer-heroes-game-sheets-low-ink.png" alt="buccaneer heroes game-sheets low ink">
+    </div>
+
+   <div class="carousel-slide">
+
+      <img src="all-buccaneer-heroes-material.png" alt="all buccaneer heroes material">
+    </div>
+
+    <div class="carousel-slide">
+      <img src="buccaneer-heroes-game-cards.png" alt="buccaneer heroes game cards">
+    </div>
+
+    <div class="carousel-slide">
+      <img src="buccaneer-heroes-events-file.png" alt="three pages of the buccaneer heroes events file">
+    </div>
+
+   <div class="carousel-slide">
+      <img src="captains-log-preview.png" alt="A closeup preview of the game's first game sheet the Captain's Log">
+    </div>
+
+   <div class="carousel-slide">
+      <img src="achievements-sheet-preview.png" alt="A closeup preview of the game's second game sheet the achievements sheet">
+    </div>
+
+
+   <div class="carousel-slide">
+      <img src="buccaneer-heroes-cheat-sheets.png" alt="two buccaneer heroes cheat sheets">
+    </div>
+
+   <div class="carousel-slide">
+      <img src="buccaneer-heroes-life-after-piracy.png" alt="A close view of the Life After Piracy score chart">
+    </div>
+
   </div>
-</section>
+
+  <button class="carousel-btn prev">&#10094;</button>
+  <button class="carousel-btn next">&#10095;</button>
+
+</div>
 
 
 
@@ -1161,10 +1032,42 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
 
 
+      <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
+      <div class="buttons">
+        <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
+          Visit us on itch.io
+        </a>
+      </div>
+    </div>
+  </section>
 
 
 
 
+<form id="signup-form" 
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse" 
+      method="POST" 
+      target="hidden_iframe">
+  
+  <input type="email" 
+         id="email" 
+         name="entry.1679177313" 
+         placeholder="Enter your email" 
+         required>
+  
+  <!-- Hidden fields for your tracking data -->
+  <input type="hidden" id="code_field" name="entry.507215426">
+  <input type="hidden" id="ref_field" name="entry.6682609">
+  
+  <button type="submit">Join the Crew</button>
+</form>
+
+<!-- Hidden iframe that catches the submission (no page reload) -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<p id="referral-link" style="display:none; margin-top:1rem; font-weight:bold;"></p>
+
+<p id="referral-link" style="display:none;"></p>
 
 
 <section class="feature">
@@ -1850,66 +1753,59 @@ if(ref){
 
 
 <script>
-// Generate referral code
-function generateCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
+
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse";
+
+const EMAIL_FIELD = "entry.1679177313";
+const CODE_FIELD = "entry.507215426";
+const REF_FIELD = "entry.6682609";
+
+
+function generateCode(){
+  return Math.random().toString(36).substring(2,8).toUpperCase();
 }
+
 
 // Capture referral from URL
 const params = new URLSearchParams(window.location.search);
 const ref = params.get("ref");
-if (ref) {
+
+if(ref){
   localStorage.setItem("referrer", ref);
 }
 
-const signupForm = document.getElementById("signup-form");
-const submitBtn = document.getElementById("submit-btn");
-const emailInput = document.getElementById("email");
-const successDiv = document.getElementById("success-message");
-const referralP = document.getElementById("referral-link");
 
-let isSubmitting = false;
+// Handle signup
+document.getElementById("signup-form").addEventListener("submit", function(e){
 
-signupForm.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  if (isSubmitting) return; // extra safety
-
-  const email = emailInput.value.trim();
-  if (!email) return;
-
-  isSubmitting = true;
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Joining...";
-
+  const email = document.getElementById("email").value;
   const code = generateCode();
   const referredBy = localStorage.getItem("referrer") || "";
 
-  document.getElementById("code_field").value = code;
-  document.getElementById("ref_field").value = referredBy;
+  const formData = new URLSearchParams();
 
-  // Submit via iframe
-  this.submit();
+formData.append(EMAIL_FIELD, email);
+formData.append(CODE_FIELD, code);
+formData.append(REF_FIELD, referredBy);
 
+fetch(FORM_URL,{
+  method:"POST",
+  mode:"no-cors",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: formData.toString()
+});
+  const referralLink = "https://buccaneer-heroes.com/?ref=" + code;
 
+  const linkBox = document.getElementById("referral-link");
+  linkBox.style.display = "block";
+  linkBox.innerHTML = "Your referral link:<br><b>" + referralLink + "</b>";
 
-// Show success (assume success since iframe method is reliable)
-setTimeout(() => {
-  successDiv.style.display = "block";
-  referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
-  
-  // Hide form after success
-  signupForm.style.display = "none";
-  
-  // Optional: change itch button text too for fun
-  // document.querySelector('.btn-primary').textContent = "Crew Joined – Visit itch.io";
+});
 
-  console.log("Signup success! Code:", code, "Email:", email);
-  
-  // Reset button (in case page refresh)
-  submitBtn.disabled = false;
-  submitBtn.textContent = "Joined ✓";
-}, 600);  // slightly faster
 </script>
 
 
