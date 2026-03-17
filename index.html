@@ -21,6 +21,78 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
+
+
+/* Modal Styles - Pirate Theme */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(10, 31, 46, 0.92); /* dark sea overlay */
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: linear-gradient(to bottom, #0a1f2e, #132c40);
+  margin: 8% auto;
+  padding: 2.5rem;
+  border: 3px solid #e8c670;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 720px;
+  color: #f4e8d1;
+  box-shadow: 0 0 40px rgba(232, 198, 112, 0.4);
+  position: relative;
+}
+
+.close {
+  color: #e8c670;
+  float: right;
+  font-size: 2.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -1rem;
+  margin-right: -1rem;
+}
+
+.close:hover,
+.close:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.modal h2 {
+  font-family: 'IM Fell English SC', serif;
+  color: #e8c670;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.05em;
+}
+
+.modal ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal li {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.modal strong {
+  color: #e8c670;
+}
+
+
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -1137,6 +1209,58 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
           <button type="submit" id="submit-btn">Join the Crew</button>
         </form>
 
+
+<button id="referralBtn" class="btn btn-primary" style="margin: 1rem 0;">
+  View Referral Rewards 🏴‍☠️
+</button>
+
+<!-- The Modal -->
+<div id="referralModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Referral Rewards – Climb the Ranks!</h2>
+    <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">
+      Recruit fellow pirates and unlock epic rewards when you back the Kickstarter!
+    </p>
+
+    <ul>
+      <li><strong>Deckhand → 1 recruit</strong><br>
+      • Pyrate Codex + Private Discord channel<br>
+      • Free without backing the Kickstarter campaign</li>
+
+      <li><strong>Navigator → 3 recruits</strong><br>
+      • All above + Alternate core game cards (if you back any Kickstarter Tier, additionally receive three exclusive alternate Event cards that replace core game cards)<br>
+      • Unlocked now — delivered when you back the Kickstarter.</li>
+
+      <li><strong>First Mate → 5 recruits</strong><br>
+      • All above + Alternate Captain’s Logs sheets (if you back any Kickstarter Tier, additionally receive 5 alternate maps)<br>
+      • Unlocked now — delivered when you back the Kickstarter.</li>
+
+      <li><strong>Captain → 10 recruits</strong><br>
+      • All above + Tempest expansion (6 card) – adds new elements to existing game mechanics<br>
+      • Unlocked now — delivered when you back the Kickstarter.</li>
+
+      <li><strong>Legendary Captain → 15 recruits</strong><br>
+      • All above + Trader Bill (6 cards) & Origins expansions (6 cards) – both add new elements to existing game mechanics<br>
+      • Unlocked now — delivered when you back the Kickstarter.</li>
+
+      <li><strong>Buccaneer Hero → 20+ recruits</strong><br>
+      • All above + Settlement Events expansion (48 cards)<br>
+      • Unlocked now — delivered when you back the Kickstarter and cards are created.</li>
+
+      <li style="margin-top: 2rem; border-top: 1px solid rgba(232,198,112,0.3); padding-top: 1.5rem;">
+        <strong>Top Referrer Titles (Lifetime Leaderboard)</strong><br>
+      </li>
+      <li><strong>#5 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name given to a ship in a Chance card (winner is given the remaining card) + entry added to the Pyrate Codex</li>
+      <li><strong>#4 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name given to a ship in a Chance card (winner picks one of two cards) + entry added to the Pyrate Codex</li>
+      <li><strong>#3 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner is given the remaining card) + entry added to the Pyrate Codex</li>
+      <li><strong>#2 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner picks one of two remaining cards) + entry added to the Pyrate Codex</li>
+      <li><strong>#1 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner picks one of three possible cards) + entry added to the Pyrate Codex + Physical Copy (all material printed and shipped)</li>
+    </ul>
+  </div>
+</div>
+
+
         
 
         <div id="success-message" style="display:none; margin-top: 1.5rem; padding: 1rem; background: rgba(232,198,112,0.15); border: 1px solid #e8c670; border-radius: 12px; text-align: center;">
@@ -1907,6 +2031,37 @@ signupForm.addEventListener("submit", function(e) {
     referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
     signupForm.style.display = "none";
   });
+});
+</script>
+
+
+
+
+<script>
+// Modal functionality
+const modal = document.getElementById("referralModal");
+const btn = document.getElementById("referralBtn");
+const span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Optional: Close with Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === "Escape" && modal.style.display === "block") {
+    modal.style.display = "none";
+  }
 });
 </script>
 
