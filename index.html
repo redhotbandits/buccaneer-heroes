@@ -1120,22 +1120,24 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
     <div class="buttons">
       <div class="signup-wrapper">
         <form id="signup-form"
-action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
-method="POST"
-target="hidden_iframe">
+              action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
+              method="POST"
+              target="hidden_iframe">
+         
+          <input type="email"
+                 id="email"
+                 name="entry.1679177313"
+                 placeholder="Enter your email to join the crew"
+                 required>
+         
+          <!-- Hidden fields -->
+          <input type="hidden" id="code_field" name="entry.507215426">
+          <input type="hidden" id="ref_field" name="entry.6682609">
+         
+          <button type="submit" id="submit-btn">Join the Crew</button>
+        </form>
 
-<input
-id="email"
-name="entry.1679177313"
-type="email"
-placeholder="Enter your email"
-required>
-
-<button id="submit-btn" type="submit">Join the Crew</button>
-
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
         <div id="success-message" style="display:none; margin-top: 1.5rem; padding: 1rem; background: rgba(232,198,112,0.15); border: 1px solid #e8c670; border-radius: 12px; text-align: center;">
           <p style="font-size: 1.3rem; color: #e8c670; margin-bottom: 0.8rem;">
@@ -1853,26 +1855,25 @@ function generateCode() {
   return Math.random().toString(36).substring(2, 8).toUpperCase();
 }
 
-// Capture referral from URL (run once on load)
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get("ref");
-  if (ref) {
-    localStorage.setItem("referrer", ref);
-    console.log("Referral saved:", ref);
-  }
-})();
+// Capture referral from URL
+const params = new URLSearchParams(window.location.search);
+const ref = params.get("ref");
+if (ref) {
+  localStorage.setItem("referrer", ref);
+}
 
 const signupForm = document.getElementById("signup-form");
-const emailInput = document.getElementById("email");
 const submitBtn = document.getElementById("submit-btn");
+const emailInput = document.getElementById("email");
 const successDiv = document.getElementById("success-message");
 const referralP = document.getElementById("referral-link");
+
 let isSubmitting = false;
 
 signupForm.addEventListener("submit", function(e) {
   e.preventDefault();
-  if (isSubmitting) return;
+
+  if (isSubmitting) return; // extra safety
 
   const email = emailInput.value.trim();
   if (!email) return;
@@ -1884,40 +1885,31 @@ signupForm.addEventListener("submit", function(e) {
   const code = generateCode();
   const referredBy = localStorage.getItem("referrer") || "";
 
-  // Send silently to Google Forms
-  const formData = new FormData();
-  formData.append("entry.1679177313", email);
-  formData.append("entry.507215426", code);
-  formData.append("entry.6682609", referredBy);
+  document.getElementById("code_field").value = code;
+  document.getElementById("ref_field").value = referredBy;
 
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse", {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  });
+  // Submit via iframe
+  this.submit();
 
+
+
+// Show success (assume success since iframe method is reliable)
+setTimeout(() => {
   successDiv.style.display = "block";
-  referralP.innerHTML = `
-    Your personal referral link:<br><br>
-    <strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>
-    Share it far and wide, matey!
-  `;
-
+  referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey!`;
+  
+  // Hide form after success
   signupForm.style.display = "none";
-});
+  
+  // Optional: change itch button text too for fun
+  // document.querySelector('.btn-primary').textContent = "Crew Joined – Visit itch.io";
 
-
-const formData = new FormData();
-formData.append("entry.1679177313", email);
-formData.append("entry.507215426", code);
-formData.append("entry.6682609", referredBy);
-
-fetch("https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse", {
-  method: "POST",
-  mode: "no-cors",
-  body: formData
-});
-});
+  console.log("Signup success! Code:", code, "Email:", email);
+  
+  // Reset button (in case page refresh)
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Joined ✓";
+}, 600);  // slightly faster
 </script>
 
 
