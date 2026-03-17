@@ -105,13 +105,14 @@
     @keyframes fadeRise { from { opacity:0; transform:translateY(15px); } to { opacity:0.95; transform:translateY(0); } }
 
     .hero-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 1.5rem;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 420px;           
+  margin: 2rem auto 1rem;     
+}
     .left-column { flex: 1; min-width: 320px; max-width: 420px; }
     .right-column {
       flex: 1; min-width: 300px;
@@ -193,50 +194,53 @@
 <body>
 
   <section class="hero">
-    <div class="hero-content">
-      <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
-      <h1 class="tagline"><strong>Buccaneer Heroes</strong><br>A Pirate Print-and-Play Board Game</h1>
-      <p class="subtitle">Forge your legend in this strategic sandbox table-top Action RPG set in the Caribbean during the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure... <strong>Coming Soon</strong>.</p>
+  <div class="hero-content">
+    <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
+    <h1 class="tagline"><strong>Buccaneer Heroes</strong><br>A Pirate Print-and-Play Board Game</h1>
+    <p class="subtitle">
+      Forge your legend in this strategic sandbox table-top Action RPG set in the Caribbean during the Golden Age of Piracy. 
+      Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure…
+      <strong>Coming Soon</strong>.
+    </p>
 
-      <div class="media-carousel">...</div> <!-- your carousel stays the same -->
-
-      <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
-
-      <div class="hero-bottom">
-
-        <!-- Left: Signup + Referral button -->
-        <div class="left-column">
-          <div class="signup-wrapper">
-            <form id="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse" method="POST">
-              <input type="email" id="email" name="entry.1679177313" placeholder="Enter your email to join the crew" required>
-              <input type="hidden" id="code_field" name="entry.507215426">
-              <input type="hidden" id="ref_field" name="entry.6682609">
-              <button type="submit" id="submit-btn">Join the Crew</button>
-            </form>
-            <div id="success-message">
-              <p style="font-size:1.3rem; color:#e8c670; margin-bottom:0.8rem;">🏴‍☠️ You're in the crew!</p>
-              <p id="referral-link" style="font-weight:bold; color:#f4e8d1;"></p>
-            </div>
-          </div>
-
-          <button id="referralBtn" class="btn btn-primary" style="width:100%; margin-top:1.2rem;">
-            View Referral Rewards 🏴‍☠️
-          </button>
-        </div>
-
-        
-
-      </div>
-
-      <!-- Itch button below both columns -->
-      <div class="itch-container">
-        <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
-          Visit us on itch.io
-        </a>
-      </div>
-
+    <div class="media-carousel">
+      <!-- your carousel code remains unchanged -->
     </div>
-  </section>
+
+    <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
+
+    <div class="hero-bottom">
+      <div class="signup-wrapper">
+        <form id="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse" method="POST">
+          <input type="email" id="email" name="entry.1679177313" placeholder="Enter your email to join the crew" required>
+          <input type="hidden" id="code_field" name="entry.507215426">
+          <input type="hidden" id="ref_field" name="entry.6682609">
+          <button type="submit" id="submit-btn">Join the Crew</button>
+        </form>
+        <div id="success-message">
+          <p style="font-size:1.3rem; color:#e8c670; margin-bottom:0.8rem;">🏴‍☠️ You're in the crew!</p>
+          <p id="referral-link" style="font-weight:bold; color:#f4e8d1;"></p>
+        </div>
+      </div>
+
+      <button id="referralBtn" class="btn btn-primary" style="width:100%; max-width:420px; margin-top:1.5rem;">
+        View Referral Rewards 🏴‍☠️
+      </button>
+    </div>
+
+    <div class="itch-container">
+      <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
+        Visit us on itch.io
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
   <!-- Rest of your page (feature sections, how to play, core features, faq, footer) stays exactly the same -->
   <!-- ... -->
