@@ -1893,7 +1893,7 @@ signupForm.addEventListener("submit", function(e) {
   .then(() => {
     // Success! Show your pirate-themed message
     successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey! 🏴‍☠️`;
+    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
 
     signupForm.style.display = "none";  // hide form
     submitBtn.textContent = "Joined ✓";
@@ -1904,7 +1904,7 @@ signupForm.addEventListener("submit", function(e) {
     console.error("Submit error:", err);
     // Fallback: still show success (Google rarely fails)
     successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br>Share it far and wide, matey! 🏴‍☠️`;
+    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
     signupForm.style.display = "none";
   });
 });
