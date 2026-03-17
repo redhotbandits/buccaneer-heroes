@@ -1027,11 +1027,6 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 </div>
 
 
-
-
-
-
-
       <p class="subtitle hero-quote">“Rise, Buccaneer. Rise a hero. Rise for freedom…<br>and the world’s end.”</p>
       <div class="buttons">
         <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary">
@@ -1040,34 +1035,6 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
       </div>
     </div>
   </section>
-
-
-
-
-<form id="signup-form" 
-      action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse" 
-      method="POST" 
-      target="hidden_iframe">
-  
-  <input type="email" 
-         id="email" 
-         name="entry.1679177313" 
-         placeholder="Enter your email" 
-         required>
-  
-  <!-- Hidden fields for your tracking data -->
-  <input type="hidden" id="code_field" name="entry.507215426">
-  <input type="hidden" id="ref_field" name="entry.6682609">
-  
-  <button type="submit">Join the Crew</button>
-</form>
-
-<!-- Hidden iframe that catches the submission (no page reload) -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-<p id="referral-link" style="display:none; margin-top:1rem; font-weight:bold;"></p>
-
-<p id="referral-link" style="display:none;"></p>
 
 
 <section class="feature">
@@ -1725,88 +1692,6 @@ nextBtn.addEventListener('click', () => {
 </script>
 
 
-
-
-<script>
-(function() {
-
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get("ref");
-
-  if (ref) {
-    localStorage.setItem("referrer", ref);
-  }
-
-})();
-</script>
-
-
-
-<script>
-const ref = localStorage.getItem("referrer");
-if(ref){
-  console.log("Referral detected:", ref);
-}
-</script>
-
-
-
-
-<script>
-
-const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse";
-
-const EMAIL_FIELD = "entry.1679177313";
-const CODE_FIELD = "entry.507215426";
-const REF_FIELD = "entry.6682609";
-
-
-function generateCode(){
-  return Math.random().toString(36).substring(2,8).toUpperCase();
-}
-
-
-// Capture referral from URL
-const params = new URLSearchParams(window.location.search);
-const ref = params.get("ref");
-
-if(ref){
-  localStorage.setItem("referrer", ref);
-}
-
-
-// Handle signup
-document.getElementById("signup-form").addEventListener("submit", function(e){
-
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-  const code = generateCode();
-  const referredBy = localStorage.getItem("referrer") || "";
-
-  const formData = new URLSearchParams();
-
-formData.append(EMAIL_FIELD, email);
-formData.append(CODE_FIELD, code);
-formData.append(REF_FIELD, referredBy);
-
-fetch(FORM_URL,{
-  method:"POST",
-  mode:"no-cors",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
-  },
-  body: formData.toString()
-});
-  const referralLink = "https://buccaneer-heroes.com/?ref=" + code;
-
-  const linkBox = document.getElementById("referral-link");
-  linkBox.style.display = "block";
-  linkBox.innerHTML = "Your referral link:<br><b>" + referralLink + "</b>";
-
-});
-
-</script>
 
 
 
