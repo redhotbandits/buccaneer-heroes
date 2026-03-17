@@ -1884,30 +1884,39 @@ signupForm.addEventListener("submit", function(e) {
   const code = generateCode();
   const referredBy = localStorage.getItem("referrer") || "";
 
-  // Build pre-filled URL
-  const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/viewform";
-  const params = new URLSearchParams({
-    "entry.1679177313": email,
-    "entry.507215426": code,
-    "entry.6682609": referredBy
-  });
-  const prefilledUrl = `${baseUrl}?${params.toString()}`;
+  // Send silently to Google Forms
+  const formData = new FormData();
+  formData.append("entry.1679177313", email);
+  formData.append("entry.507215426", code);
+  formData.append("entry.6682609", referredBy);
 
-  // Show success message FIRST (this is what the user sees on your site)
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+
   successDiv.style.display = "block";
   referralP.innerHTML = `
-
     Your personal referral link:<br><br>
     <strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>
-    Share it far and wide, matey!<br><br>
-    Redirecting to confirm signup in 2 seconds...
+    Share it far and wide, matey!
   `;
-  signupForm.style.display = "none";
 
-  // Redirect after giving user time to read (adjust delay if needed)
-  setTimeout(() => {
-    window.location.href = prefilledUrl;
-  }, 2000); // 2000 ms = 2 seconds — enough to read, not too long
+  signupForm.style.display = "none";
+});
+
+
+const formData = new FormData();
+formData.append("entry.1679177313", email);
+formData.append("entry.507215426", code);
+formData.append("entry.6682609", referredBy);
+
+fetch("https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse", {
+  method: "POST",
+  mode: "no-cors",
+  body: formData
+});
 });
 </script>
 
