@@ -1206,7 +1206,7 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
     <div class="buttons">
       <div class="signup-wrapper">
-       <button type="button" id="join-crew-btn" class="btn btn-primary kol-open">
+       <button type="button" id="join-crew-btn" class="btn btn-primary">
   Join the Crew
 </button>
 
@@ -2018,7 +2018,22 @@ document.addEventListener('keydown', function(event) {
 </script>
 
 
+<script>
+document.getElementById("join-crew-btn").addEventListener("click", function(e) {
+  e.preventDefault();
 
+  if (typeof window.openContestBox === "function") {
+    window.openContestBox();
+  } else if (window._kol && window._kol.container) {
+    // Fallback: dispatch the same event the official function uses
+    window._kol.container.dispatchEvent(
+      new CustomEvent("kol:activate:ContestBox", { bubbles: true })
+    );
+  } else {
+    console.warn("KickoffLabs not ready yet – try again in a second");
+  }
+});
+</script>
 
 
 </body>
