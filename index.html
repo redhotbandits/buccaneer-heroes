@@ -1984,66 +1984,7 @@ if(ref){
 
 
 
-<script>
-// Generate referral code
-function generateCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
-}
 
-// Capture referrer from URL
-const params = new URLSearchParams(window.location.search);
-const refFromUrl = params.get("ref");
-if (refFromUrl) {
-  localStorage.setItem("referrer", refFromUrl);
-}
-
-const signupForm = document.getElementById("signup-form");
-const submitBtn = document.getElementById("submit-btn");
-const emailInput = document.getElementById("email");
-const successDiv = document.getElementById("success-message");
-const referralP = document.getElementById("referral-link");
-
-signupForm.addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  const email = emailInput.value.trim();
-  if (!email || submitBtn.disabled) return;
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Joining the crew...";
-
-  const code = generateCode();
-  const referredBy = localStorage.getItem("referrer") || "";
-
-  // Set hidden fields (these MUST match your Google Form's exact entry.XXXX IDs)
-  document.getElementById("code_field").value = code;
-  document.getElementById("ref_field").value = referredBy;
-
-  // SUBMIT SILENTLY with fetch (no redirect, no iframe, no Google page ever appears)
-  fetch(this.action, {
-    method: "POST",
-    body: new FormData(this),
-    mode: "no-cors"  // crucial for Google Forms
-  })
-  .then(() => {
-    // Success! Show your pirate-themed message
-    successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
-
-    signupForm.style.display = "none";  // hide form
-    submitBtn.textContent = "Joined ✓";
-    
-    console.log("Signup success! Code:", code, "Referred by:", referredBy);
-  })
-  .catch(err => {
-    console.error("Submit error:", err);
-    // Fallback: still show success (Google rarely fails)
-    successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
-    signupForm.style.display = "none";
-  });
-});
-</script>
 
 
 
