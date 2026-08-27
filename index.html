@@ -1202,83 +1202,59 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
     <div class="buttons">
       <div class="signup-wrapper">
-        <form id="signup-form"
-              action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
-              method="POST"
-              target="hidden_iframe">
-         
-          <input type="email"
-                 id="email"
-                 name="entry.1679177313"
-                 placeholder="Enter email to join the crew"
-                 required>
-         
-          <!-- Hidden fields -->
-          <input type="hidden" id="code_field" name="entry.507215426">
-          <input type="hidden" id="ref_field" name="entry.6682609">
-         
-          <button type="submit" id="submit-btn">Join the Crew</button>
-        </form>
+        <!-- KickoffLabs popup trigger (requires kol.js + Open After: Never) -->
+        <a href="#kolOpenContestBox" class="btn btn-primary" id="share-rewards-btn" style="margin: 0 0 1rem 0; width: 100%; max-width: 420px;">
+          Share for Rewards 🏴‍☠️
+        </a>
 
+        <button id="referralBtn" class="btn btn-primary" style="margin: 0 0 2rem 0; width: 100%; max-width: 420px;">
+          View Referral Rewards
+        </button>
 
-<button id="referralBtn" class="btn btn-primary" style="margin: 1rem 0 2rem 0;">
-  View Referral Rewards 🏴‍☠️
-</button>
+        <!-- The Modal -->
+        <div id="referralModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Referral Rewards – Climb the Ranks!</h2>
+            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">
+              Recruit fellow pirates and unlock epic rewards when you back the Kickstarter!
+            </p>
 
-<!-- The Modal -->
-<div id="referralModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Referral Rewards – Climb the Ranks!</h2>
-    <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">
-      Recruit fellow pirates and unlock epic rewards when you back the Kickstarter!
-    </p>
+            <ul>
+              <li><strong>Deckhand → 1 recruit</strong><br>
+              • Pyrate Codex + Private Discord channel<br>
+              • Free without backing the Kickstarter campaign</li>
 
-    <ul>
-      <li><strong>Deckhand → 1 recruit</strong><br>
-      • Pyrate Codex + Private Discord channel<br>
-      • Free without backing the Kickstarter campaign</li>
+              <li><strong>Navigator → 3 recruits</strong><br>
+              • All above + Alternate core game cards (if you back any Kickstarter Tier, additionally receive three exclusive alternate Event cards that replace core game cards)<br>
+              • Unlocked now — delivered when you back the Kickstarter.</li>
 
-      <li><strong>Navigator → 3 recruits</strong><br>
-      • All above + Alternate core game cards (if you back any Kickstarter Tier, additionally receive three exclusive alternate Event cards that replace core game cards)<br>
-      • Unlocked now — delivered when you back the Kickstarter.</li>
+              <li><strong>First Mate → 5 recruits</strong><br>
+              • All above + Alternate Captain’s Logs sheets (if you back any Kickstarter Tier, additionally receive 5 alternate maps)<br>
+              • Unlocked now — delivered when you back the Kickstarter.</li>
 
-      <li><strong>First Mate → 5 recruits</strong><br>
-      • All above + Alternate Captain’s Logs sheets (if you back any Kickstarter Tier, additionally receive 5 alternate maps)<br>
-      • Unlocked now — delivered when you back the Kickstarter.</li>
+              <li><strong>Captain → 10 recruits</strong><br>
+              • All above + Tempest expansion (6 cards) – expands existing game mechanics<br>
+              • Unlocked now — delivered when you back the Kickstarter.</li>
 
-      <li><strong>Captain → 10 recruits</strong><br>
-      • All above + Tempest expansion (6 cards) – expands existing game mechanics<br>
-      • Unlocked now — delivered when you back the Kickstarter.</li>
+              <li><strong>Legendary Captain → 15 recruits</strong><br>
+              • All above + Trader Bill (6 cards) & Origins expansions (6 cards) – both expand existing game mechanics<br>
+              • Unlocked now — delivered when you back the Kickstarter.</li>
 
-      <li><strong>Legendary Captain → 15 recruits</strong><br>
-      • All above + Trader Bill (6 cards) & Origins expansions (6 cards) – both expand existing game mechanics<br>
-      • Unlocked now — delivered when you back the Kickstarter.</li>
+              <li><strong>Buccaneer Hero → 20+ recruits</strong><br>
+              • All above + Settlement Events expansion (48 cards)<br>
+              • Unlocked now — delivered when you back the Kickstarter and cards are created.</li>
 
-      <li><strong>Buccaneer Hero → 20+ recruits</strong><br>
-      • All above + Settlement Events expansion (48 cards)<br>
-      • Unlocked now — delivered when you back the Kickstarter and cards are created.</li>
-
-      <li style="margin-top: 2rem; border-top: 1px solid rgba(232,198,112,0.3); padding-top: 1.5rem;">
-        <strong>Top Referrer Titles (Lifetime Leaderboard)</strong><br>
-      </li>
-      <li><strong>#5 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name given to a ship in a Chance card (winner is given the remaining card) + entry added to the Pyrate Codex</li>
-      <li><strong>#4 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name given to a ship in a Chance card (winner picks one of two cards) + entry added to the Pyrate Codex</li>
-      <li><strong>#3 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner is given the remaining card) + entry added to the Pyrate Codex</li>
-      <li><strong>#2 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner picks one of two remaining cards) + entry added to the Pyrate Codex</li>
-      <li><strong>#1 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner picks one of three possible cards) + entry added to the Pyrate Codex + Physical Copy (all material printed and shipped)</li>
-    </ul>
-  </div>
-</div>
-
-
-        
-
-        <div id="success-message" style="display:none; margin-top: 1.5rem; padding: 1rem; background: rgba(232,198,112,0.15); border: 1px solid #e8c670; border-radius: 12px; text-align: center;">
-          <p style="font-size: 1.3rem; color: #e8c670; margin-bottom: 0.8rem;">
-            🏴‍☠️ You're in the crew!
-          </p>
-          <p id="referral-link" style="font-weight: bold; color: #f4e8d1;"></p>
+              <li style="margin-top: 2rem; border-top: 1px solid rgba(232,198,112,0.3); padding-top: 1.5rem;">
+                <strong>Top Referrer Titles (Lifetime Leaderboard)</strong><br>
+              </li>
+              <li><strong>#5 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name given to a ship in a Chance card (winner is given the remaining card) + entry added to the Pyrate Codex</li>
+              <li><strong>#4 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name given to a ship in a Chance card (winner picks one of two cards) + entry added to the Pyrate Codex</li>
+              <li><strong>#3 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner is given the remaining card) + entry added to the Pyrate Codex</li>
+              <li><strong>#2 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner picks one of two remaining cards) + entry added to the Pyrate Codex</li>
+              <li><strong>#1 Referrer</strong> → Name added to the Rulebook acknowledgements section (last page) + Name and likeness included in a Global Event or Chance card (winner picks one of three possible cards) + entry added to the Pyrate Codex + Physical Copy (all material printed and shipped)</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -1984,66 +1960,7 @@ if(ref){
 
 
 
-<script>
-// Generate referral code
-function generateCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
-}
-
-// Capture referrer from URL
-const params = new URLSearchParams(window.location.search);
-const refFromUrl = params.get("ref");
-if (refFromUrl) {
-  localStorage.setItem("referrer", refFromUrl);
-}
-
-const signupForm = document.getElementById("signup-form");
-const submitBtn = document.getElementById("submit-btn");
-const emailInput = document.getElementById("email");
-const successDiv = document.getElementById("success-message");
-const referralP = document.getElementById("referral-link");
-
-signupForm.addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  const email = emailInput.value.trim();
-  if (!email || submitBtn.disabled) return;
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Joining the crew...";
-
-  const code = generateCode();
-  const referredBy = localStorage.getItem("referrer") || "";
-
-  // Set hidden fields (these MUST match your Google Form's exact entry.XXXX IDs)
-  document.getElementById("code_field").value = code;
-  document.getElementById("ref_field").value = referredBy;
-
-  // SUBMIT SILENTLY with fetch (no redirect, no iframe, no Google page ever appears)
-  fetch(this.action, {
-    method: "POST",
-    body: new FormData(this),
-    mode: "no-cors"  // crucial for Google Forms
-  })
-  .then(() => {
-    // Success! Show your pirate-themed message
-    successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
-
-    signupForm.style.display = "none";  // hide form
-    submitBtn.textContent = "Joined ✓";
-    
-    console.log("Signup success! Code:", code, "Referred by:", referredBy);
-  })
-  .catch(err => {
-    console.error("Submit error:", err);
-    // Fallback: still show success (Google rarely fails)
-    successDiv.style.display = "block";
-    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
-    signupForm.style.display = "none";
-  });
-});
-</script>
+<!-- Google Forms signup removed — KickoffLabs popup handles lead capture via #kolOpenContestBox -->
 
 
 
@@ -2076,6 +1993,8 @@ document.addEventListener('keydown', function(event) {
 });
 </script>
 
+
+<script src="https://b.kickoffpages.com/2.2.0/kol.js" id="koljs" data-campaign-id="193677" async></script>
 
 
 </body>
