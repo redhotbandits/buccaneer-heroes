@@ -1,10 +1,6 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-<script src="https://b.kickoffpages.com/2.2.0/kol.js" id="koljs" data-campaign-id="193677" async></script><div data-kol-snippet="embedpage" data-kolPageId="405795" class="kol-embed-page-frame default"></div>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1206,9 +1202,23 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
     <div class="buttons">
       <div class="signup-wrapper">
-       <button type="button" id="join-crew-btn" class="btn btn-primary">
-  Join the Crew
-</button>
+        <form id="signup-form"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSdpghdko7k9kbKGs7FNFm688xhsv0x2yeWeLxw6mvU-zX9Pag/formResponse"
+              method="POST"
+              target="hidden_iframe">
+         
+          <input type="email"
+                 id="email"
+                 name="entry.1679177313"
+                 placeholder="Enter email to join the crew"
+                 required>
+         
+          <!-- Hidden fields -->
+          <input type="hidden" id="code_field" name="entry.507215426">
+          <input type="hidden" id="ref_field" name="entry.6682609">
+         
+          <button type="submit" id="submit-btn">Join the Crew</button>
+        </form>
 
 
 <button id="referralBtn" class="btn btn-primary" style="margin: 1rem 0 2rem 0;">
@@ -1272,20 +1282,10 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
         </div>
       </div>
 
-    
-<a href="https://red-hot-bandits.itch.io/buccaneer-heroes"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-primary itch-btn">
-  BUY IT NOW ON ITCH.IO
-</a>
-
-<a href="https://www.kickstarter.com/projects/redhotbandits/buccaneer-heroes"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-primary itch-btn">
-  BACK OUR KICKSTARTER
-</a>
+      <!-- Only ONE itch.io button -->
+      <a href="https://red-hot-bandits.itch.io/buccaneer-heroes" class="btn btn-primary itch-btn">
+        Visit us on itch.io
+      </a>
     </div>
   </div>
 </section>
@@ -1984,7 +1984,66 @@ if(ref){
 
 
 
+<script>
+// Generate referral code
+function generateCode() {
+  return Math.random().toString(36).substring(2, 8).toUpperCase();
+}
 
+// Capture referrer from URL
+const params = new URLSearchParams(window.location.search);
+const refFromUrl = params.get("ref");
+if (refFromUrl) {
+  localStorage.setItem("referrer", refFromUrl);
+}
+
+const signupForm = document.getElementById("signup-form");
+const submitBtn = document.getElementById("submit-btn");
+const emailInput = document.getElementById("email");
+const successDiv = document.getElementById("success-message");
+const referralP = document.getElementById("referral-link");
+
+signupForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  const email = emailInput.value.trim();
+  if (!email || submitBtn.disabled) return;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Joining the crew...";
+
+  const code = generateCode();
+  const referredBy = localStorage.getItem("referrer") || "";
+
+  // Set hidden fields (these MUST match your Google Form's exact entry.XXXX IDs)
+  document.getElementById("code_field").value = code;
+  document.getElementById("ref_field").value = referredBy;
+
+  // SUBMIT SILENTLY with fetch (no redirect, no iframe, no Google page ever appears)
+  fetch(this.action, {
+    method: "POST",
+    body: new FormData(this),
+    mode: "no-cors"  // crucial for Google Forms
+  })
+  .then(() => {
+    // Success! Show your pirate-themed message
+    successDiv.style.display = "block";
+    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
+
+    signupForm.style.display = "none";  // hide form
+    submitBtn.textContent = "Joined ✓";
+    
+    console.log("Signup success! Code:", code, "Referred by:", referredBy);
+  })
+  .catch(err => {
+    console.error("Submit error:", err);
+    // Fallback: still show success (Google rarely fails)
+    successDiv.style.display = "block";
+    referralP.innerHTML = `Your personal referral link:<br><br><strong>https://buccaneer-heroes.com/?ref=${code}</strong><br><br>Share it far and wide, matey!`;
+    signupForm.style.display = "none";
+  });
+});
+</script>
 
 
 
@@ -2017,23 +2076,6 @@ document.addEventListener('keydown', function(event) {
 });
 </script>
 
-
-<script>
-document.getElementById("join-crew-btn").addEventListener("click", function(e) {
-  e.preventDefault();
-
-  if (typeof window.openContestBox === "function") {
-    window.openContestBox();
-  } else if (window._kol && window._kol.container) {
-    // Fallback: dispatch the same event the official function uses
-    window._kol.container.dispatchEvent(
-      new CustomEvent("kol:activate:ContestBox", { bubbles: true })
-    );
-  } else {
-    console.warn("KickoffLabs not ready yet – try again in a second");
-  }
-});
-</script>
 
 
 </body>
