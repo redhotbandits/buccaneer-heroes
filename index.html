@@ -1248,6 +1248,20 @@ Buccaneer Heroes combines the convenience of print-and-play with the depth of a 
 <div class="buttons">
       
 <iframe frameborder="0" src="https://itch.io/embed/2392961?bg_color=0b2130&amp;fg_color=000000&amp;link_color=fb922b&amp;border_color=0b2130" width="208" height="167"><a href="https://red-hot-bandits.itch.io/buccaneer-heroes">Buccaneer Heroes by Red Hot Bandits</a></iframe>
+
+     <br>
+
+
+
+
+
+<button type="button"
+        class="btn btn-primary"
+        id="buy-now-btn"
+        style="margin: 0 0 1rem 0; width: 100%; max-width: 420px;">
+  BUY NOW
+</button>
+
      <br>
 
 <a href="https://www.kickstarter.com/projects/redhotbandits/buccaneer-heroes"
@@ -1977,6 +1991,25 @@ if(ref){
 
 
 <script src="https://b.kickoffpages.com/2.2.0/kol.js" id="koljs" data-campaign-id="193677" async></script>
+
+
+
+
+
+<script src="https://static.itch.io/api.js"></script>
+
+<script>
+  Itch.attachBuyButton(
+    document.getElementById('buy-now-btn'),
+    {
+      user: 'red-hot-bandits',
+      game: 'buccaneer-heroes'
+    }
+  );
+</script>
+
+
+
 
 
 </body>
