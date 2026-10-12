@@ -882,6 +882,37 @@ background-color: rgba(10, 31, 46, 0.65);
 
 
 
+
+
+.kickstarter-image-button {
+  display: inline-block;
+  line-height: 0;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.kickstarter-image-button img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.kickstarter-image-button:hover {
+  transform: scale(1.06);
+  filter: brightness(1.15) drop-shadow(0 0 8px #e8c670);
+}
+
+.kickstarter-image-button:active {
+  transform: scale(0.97);
+}
+
+.kickstarter-image-button:focus-visible {
+  outline: 2px solid #e8c670;
+  outline-offset: 4px;
+}
+
+
+
+
 </style>
 
 
@@ -1191,7 +1222,19 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
   <div class="hero-content">
     <img src="logo.png" alt="Buccaneer Heroes Logo" class="logo">
     <h1 class="tagline"><strong>Buccaneer Heroes</strong><br>A Pirate Print-and-Play Board&nbsp;Game</h1>
-    <p class="subtitle">Forge your legend in this strategic sandbox table-top Action RPG set in the Caribbean during the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, and immerse yourself in an action-packed mystical adventure. 
+   
+
+
+ <p class="feature-text">
+Buccaneer Heroes combines the convenience of print-and-play with the depth of a premium tabletop experience... without the premium price tag! Just print two A4  sheets per player, open the Events PDF, and play a surprisingly quick, epic pirate game – <b>no assembly required!</b><br>
+
+
+    </p>
+
+<br>
+<br>
+    <p class="subtitle hero-quote">Please <a href="https://www.kickstarter.com/projects/redhotbandits/buccaneer-heroes"
+   target="_blank" style="color: #e8c670;"><b>BACK OUR KICKSTARTER</b></a>. The First Edition features AI illustration placeholders. Get it now at <b>33% off</b> and receive the <b>Second Edition</b> with human art for <b>free</b> as soon as it comes out!</p>
 
 
 
@@ -1230,19 +1273,8 @@ Reputation adds another strategic layer, particularly because it is tied to Duel
 
 
 
-
 <h2 class="section-title">What is Buccaneer Heroes?</h2>
-
-
- <p class="feature-text">
-Buccaneer Heroes combines the convenience of print-and-play with the depth of a premium tabletop experience... without the premium price tag! Just print two A4  sheets per player, open the Events PDF, and play a surprisingly quick epic game – <b>no complicated assembly required!</b><br>
-
-
-    </p>
-
-<br>
-<br>
-    <p class="subtitle hero-quote">The First Edition features AI illustration placeholders. Get it now at <b>33% off</b> and receive the fully illustrated <b>Second Edition for free!</b></p>
+ <p class="subtitle">Buccaneer Heroes is a strategic sandbox table-top Action RPG set in the Golden Age of Piracy. Attack ships and cities, duel, find buried treasures, trade, and immerse yourself in an action-packed mystical adventure.</p>
 
 
 <div class="buttons">
@@ -1266,10 +1298,14 @@ Buccaneer Heroes combines the convenience of print-and-play with the depth of a 
 
 <a href="https://www.kickstarter.com/projects/redhotbandits/buccaneer-heroes"
    target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-primary itch-btn">
-  BACK OUR KICKSTARTER
-</a><br><br>
+   class="kickstarter-image-button"
+   aria-label="Back Buccaneer Heroes on Kickstarter">
+  <img src="kickstarter-logo-small.png"
+       alt="Back us on Kickstarter">
+</a>
+
+
+<br><br>
 
 <div class="signup-wrapper">
      
